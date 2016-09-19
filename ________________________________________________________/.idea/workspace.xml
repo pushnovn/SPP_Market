@@ -91,7 +91,7 @@
       <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="35" selection-start="2227" selection-end="2227" vertical-scroll-proportion="-9.912597" vertical-offset="4655" max-vertical-offset="6749">
+            <state line="47" column="35" selection-start="2227" selection-end="2227" vertical-scroll-proportion="-10.954545" vertical-offset="4655" max-vertical-offset="6749">
               <folding />
             </state>
           </provider>
@@ -767,12 +767,12 @@
       <workItem from="1473801097136" duration="3381000" />
       <workItem from="1473852261336" duration="257000" />
       <workItem from="1473865575225" duration="13177000" />
-      <workItem from="1474309575670" duration="534000" />
+      <workItem from="1474309575670" duration="1125000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17349000" />
+    <option name="totallyTimeSpent" value="17940000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="23" width="1614" height="877" extended-state="1" />
@@ -800,7 +800,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28660825" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4338896" sideWeight="0.49968374" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4555256" sideWeight="0.49968374" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -934,7 +934,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="35" selection-start="2227" selection-end="2227" vertical-scroll-proportion="-9.912597" vertical-offset="4655" max-vertical-offset="6749">
+        <state line="47" column="35" selection-start="2227" selection-end="2227" vertical-scroll-proportion="-10.954545" vertical-offset="4655" max-vertical-offset="6749">
           <folding />
         </state>
       </provider>
