@@ -60,23 +60,7 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/dao/UserDao.java" line="48" class="com.d1l.dao.UserDao" package="com.d1l.dao">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -86,19 +70,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MarketsController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/MarketsController.java">
+      <file leaf-file-name="marketservice.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/marketservice.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="57" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="1292">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="777" max-vertical-offset="1530">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemsController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/controller/supplier/ItemsController.java">
+      <file leaf-file-name="market.iml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/market.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="36" selection-start="1343" selection-end="1343" vertical-scroll-proportion="0.60714287" vertical-offset="255" max-vertical-offset="1547">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="35" selection-start="2227" selection-end="2227" vertical-scroll-proportion="-9.912597" vertical-offset="4655" max-vertical-offset="6749">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin-error-page.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-error-page.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="57" selection-start="880" selection-end="880" vertical-scroll-proportion="-11.115385" vertical-offset="153" max-vertical-offset="969">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin-page.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="57" selection-start="880" selection-end="880" vertical-scroll-proportion="-11.115385" vertical-offset="153" max-vertical-offset="935">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup-page.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="70" selection-start="1476" selection-end="1476" vertical-scroll-proportion="20.923077" vertical-offset="1173" max-vertical-offset="2006">
               <folding />
             </state>
           </provider>
@@ -118,8 +138,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/struts.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/adminpanel/add-admins.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/adminpanel/categories.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/adminpanel/markets.jsp" />
@@ -128,6 +146,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/CategoriesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/MarketsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/controller/supplier/ItemsController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/signin-error-page.jsp" />
       </list>
     </option>
   </component>
@@ -146,10 +168,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
-    <option name="y" value="24" />
-    <option name="width" value="1597" />
-    <option name="height" value="875" />
+    <option name="x" value="-8" />
+    <option name="y" value="23" />
+    <option name="width" value="1614" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -180,6 +202,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -211,6 +234,14 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -223,6 +254,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -277,34 +316,8 @@
               <option name="myItemId" value="d1l" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SPP_Market" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="________________________________________________________" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="d1l" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="util" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -331,14 +344,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="d1l" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="supplier" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,16 +374,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adminpanel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,7 +394,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/Apache Software Foundation/Tomcat 8.5/webapps/vitalyorlov-market-service-a5b3f2d6e617" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="dynamic.classpath" value="false" />
     <property name="options.lastSelected" value="database.main" />
@@ -629,6 +629,12 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -646,12 +652,6 @@
       <option name="NETWORK_LATENCY" value="none" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
-      <option name="VM_PARAMETERS" value="" />
-      <option name="USER_CFG_CLASS" />
-      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="false" name="TomCat 9.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
@@ -767,14 +767,15 @@
       <workItem from="1473801097136" duration="3381000" />
       <workItem from="1473852261336" duration="257000" />
       <workItem from="1473865575225" duration="13177000" />
+      <workItem from="1474309575670" duration="534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16815000" />
+    <option name="totallyTimeSpent" value="17349000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="24" width="1597" height="875" extended-state="1" />
+    <frame x="-8" y="23" width="1614" height="877" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -791,15 +792,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43513513" sideWeight="0.50031626" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32702702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32605904" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28716004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43513513" sideWeight="0.49968374" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28660825" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4338896" sideWeight="0.49968374" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -830,9 +831,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="45" selection-start="0" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="170">
-          <folding />
-        </state>
+        <state line="3" column="45" selection-start="0" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
@@ -844,9 +843,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="45" selection-start="0" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="170">
-          <folding />
-        </state>
+        <state line="3" column="45" selection-start="0" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
@@ -858,30 +855,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/database/marketservice_schema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3298">
-          <folding />
-        </state>
+        <state line="16" column="0" selection-start="656" selection-end="656" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3298" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main/assets/contact.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.8" vertical-offset="170" max-vertical-offset="748">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.8" vertical-offset="170" max-vertical-offset="748" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="220" selection-end="220" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="170">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="9" selection-start="1218" selection-end="1218" vertical-scroll-proportion="-7.16" vertical-offset="433" max-vertical-offset="1717">
-          <folding />
-        </state>
+        <state line="4" column="0" selection-start="220" selection-end="220" vertical-scroll-proportion="-2.6153846" vertical-offset="0" max-vertical-offset="170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
@@ -893,11 +877,7 @@
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5-BETA3/struts2-core-2.5-BETA3.jar!/com/opensymphony/xwork2/Action.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="32" selection-start="151" selection-end="151" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <folding>
-            <element signature="e#0#432#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="4" column="32" selection-start="151" selection-end="151" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
@@ -907,107 +887,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5-BETA3/struts2-core-2.5-BETA3.jar!/org/apache/struts2/dispatcher/SessionMap.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="17" selection-start="1201" selection-end="1201" vertical-scroll-proportion="10.666667" vertical-offset="969" max-vertical-offset="7072">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544" />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/Hibernate/lib/hibernate.jar!/resources/schemas/hibernate-configuration-3.0.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/marketservice.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java">
+    <entry file="file://$PROJECT_DIR$/market.iml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="175" column="51" selection-start="5013" selection-end="5041" vertical-scroll-proportion="-12.36" vertical-offset="1952" max-vertical-offset="3179">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="39" selection-start="405" selection-end="405" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="34" selection-start="1363" selection-end="1363" vertical-scroll-proportion="-13.230769" vertical-offset="268" max-vertical-offset="935">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1683">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="44" selection-start="3778" selection-end="3944" vertical-scroll-proportion="-11.115385" vertical-offset="1258" max-vertical-offset="2006">
+        <state line="37" column="70" selection-start="1476" selection-end="1476" vertical-scroll-proportion="20.923077" vertical-offset="1173" max-vertical-offset="2006">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel/add-admins.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="20" selection-start="4794" selection-end="4916" vertical-scroll-proportion="0.0" vertical-offset="1832" max-vertical-offset="2958">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5-BETA3/struts2-core-2.5-BETA3.jar!/org/apache/struts2/dispatcher/SessionMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel/categories.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="34" selection-start="5774" selection-end="5774" vertical-scroll-proportion="0.0" vertical-offset="2040" max-vertical-offset="4080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel/markets.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="34" selection-start="5753" selection-end="5753" vertical-scroll-proportion="0.7010309" vertical-offset="2040" max-vertical-offset="4165">
+        <state line="26" column="57" selection-start="880" selection-end="880" vertical-scroll-proportion="-11.115385" vertical-offset="153" max-vertical-offset="935">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-error-page.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
-          <folding>
-            <marker date="1473940001947" expanded="true" signature="523:550" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/Hibernate/lib/hibernate.jar!/resources/schemas/hibernate-configuration-3.0.dtd">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="986">
+        <state line="26" column="57" selection-start="880" selection-end="880" vertical-scroll-proportion="-11.115385" vertical-offset="153" max-vertical-offset="969">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/supplier-dashboard/items.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="34" selection-start="5087" selection-end="5087" vertical-scroll-proportion="-11.76" vertical-offset="1933" max-vertical-offset="4250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/AddAdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="23" selection-start="1529" selection-end="1529" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="986">
-          <folding>
-            <element signature="e#901#902#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
-            <element signature="e#989#990#0" expanded="true" />
-            <element signature="e#1035#1036#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/CategoriesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="12" selection-start="996" selection-end="996" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1207">
+        <state line="47" column="35" selection-start="2227" selection-end="2227" vertical-scroll-proportion="-9.912597" vertical-offset="4655" max-vertical-offset="6749">
           <folding />
         </state>
       </provider>
