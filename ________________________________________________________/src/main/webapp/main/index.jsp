@@ -61,6 +61,25 @@
 						<li><a class="scroll-link" href="#services">Services</a></li>
 						<li><a class="scroll-link" href="#testimonials">Clients</a></li>
 						<li><a class="scroll-link" href="#footer">Contact</a></li>
+						<c:set var="salary" scope="session" value='<%=session.getAttribute("role")%>'/>
+						<c:if test="${salary eq 'Customer'}">
+							<li><a href="customer-dashboard.action">Dashboard</a></li>
+							<li><a href="logout.action">Logout</a></li>
+						</c:if>
+						<c:if test="${salary eq 'Supplier'}">
+							<li><a href="supplier-dashboard.action">Dashboard</a></li>
+							<li><a href="logout.action">Logout</a></li>
+						</c:if>
+						<c:if test="${salary eq 'Admin'}">
+							<li><a href="adminpanel.action">Dashboard</a></li>
+							<li><a href="logout.action">Logout</a></li>
+						</c:if>
+						<c:choose>
+							<c:when test="${salary eq null}">
+								<li><a href="registration.action">Sign Up</a></li>
+								<li><a href="authorisation.action">Sign In</a></li>
+							</c:when>
+						</c:choose>
 					</ul>
 					<div class="navbar-text navbar-right">
 						<a href="#"><i class="fa fa-facebook"></i></a>
@@ -94,7 +113,7 @@
                             	</p>
                             </div>
                             <div class="top-big-link wow fadeInUp">
-                            	<a class="btn btn-link-1" href="#">Sign up</a>
+                            	<a class="btn btn-link-1" href="registration.action">Sign up</a>
                             	<a class="btn btn-link-2 scroll-link" href="#services">Learn more</a>
                             </div>
                         </div>

@@ -35,7 +35,7 @@
 						</ul>
 						<div id="myTabContent" class="tab-content">
 							<div class="tab-pane active in" id="ascustomer">
-								<form class="form-horizontal" action='' method="POST">
+								<form class="form-horizontal" action='signup-as-customer.action' method="POST">
 									<fieldset>
 										&nbsp;
 										<div id="legend">
@@ -69,7 +69,7 @@
 								</form>
 							</div>
 							<div class="tab-pane fade" id="assupplier">
-								<form class="form-horizontal" action='' method="POST">
+								<form class="form-horizontal" action='signup-as-supplier.action' method="POST">
 									<fieldset>
 										&nbsp;
 										<div id="legend">

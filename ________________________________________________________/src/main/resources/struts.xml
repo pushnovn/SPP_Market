@@ -80,7 +80,31 @@
             <result name="success" type="redirect">/</result>
         </action>
 
-        
+
+<action name="adminpanel-markets" class="com.d1l.controller.adminpanel.MarketsController">
+            <interceptor-ref name="roleStack"/>
+            <result name="success">/adminpanel/markets.jsp</result>
+        </action>
+
+        <action name="adminpanel-markets-add" class="com.d1l.controller.adminpanel.MarketsController" method="add">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-markets</result>
+            <result name="error" type="chain">adminpanel-markets</result>
+        </action>
+
+        <action name="adminpanel-markets-update" class="com.d1l.controller.adminpanel.MarketsController" method="update">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-markets</result>
+            <result name="error" type="chain">adminpanel-markets</result>
+        </action>
+
+        <action name="adminpanel-markets-delete" class="com.d1l.controller.adminpanel.MarketsController" method="delete">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-markets</result>
+            <result name="error" type="chain">adminpanel-markets</result>
+        </action>
+
+
 
 
 
