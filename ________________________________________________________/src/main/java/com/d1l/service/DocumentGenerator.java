@@ -125,7 +125,7 @@ public class DocumentGenerator {
         return stream;
     }
 
-   public static ByteArrayOutputStream generateOrdersInXLS() throws IOException {
+    public static ByteArrayOutputStream generateOrdersInXLS() throws IOException {
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("order");
         HSSFCellStyle headerCellStyle = workbook.createCellStyle();
@@ -433,7 +433,6 @@ public class DocumentGenerator {
         workbook.write(stream);
         return  stream;
     }
-
 
     public static ByteArrayOutputStream generateCategoriesInCSV() throws IOException {
         String[] fileHeader = {"Category Number", "Name"};

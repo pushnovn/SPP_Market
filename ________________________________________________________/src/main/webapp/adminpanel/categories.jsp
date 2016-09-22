@@ -85,10 +85,10 @@
                     <li>
                         <a href="adminpanel-users.action"><i class="fa fa-fw fa-users"></i> Users</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="adminpanel-add-admin.action"><i class="fa fa-fw fa-plus"></i> Add admin</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="adminpanel-categories.action"><i class="fa fa-fw fa-bookmark"></i> Categories</a>
                     </li>
                     <li>
@@ -104,6 +104,11 @@
         <!-- /.navbar-static-side -->
     </nav>
 
+
+    <%@include file='categories-add-modal.jsp'%>
+    <%@include file='categories-edit-modal.jsp'%>
+    <%@include file='categories-delete-modal.jsp'%>
+
     <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -112,7 +117,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Add new admin
+                        Categories
                     </h1>
                 </div>
             </div>
@@ -122,25 +127,64 @@
 
         <div id="page-inner">
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div style="color: red;">
-                        <s:property value="errorString"></s:property>
+                <div class="col-md-12">
+                    <!-- Table -->
+                    <div class="panel-heading">
+                        <button class="btn btn-default btn-sm" onclick="showAddModal()">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            Add new category
+                        </button>
+                        &middot;
+                        <a href="/generateCategoriesXLS.action">Generate XLS</a>
+                        &middot;
+                        <a href="/generateCategoriesCSV.action">Generate CSV</a>
                     </div>
-                    <form method="post" action="adminpanel-newadmin.action">
-                        <div class="form-group">
-                            <label>Login: </label>
-                            <input type="text" required class="form-control" name="user.login">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div style="color: red;">
+                                <s:property value="errorString"></s:property>
+                            </div>
+                            <p>Cars list:</p>
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>name</th>
+                                    <th>actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <s:iterator value="categoriesList" var="category">
+                                    <tr>
+                                        <td><s:property value="id"></s:property></td>
+                                        <td><s:property value="name"></s:property></td>
+                                        <td>
+                                            <button class="btn btn-link btn-sm"
+                                                    id="<s:property value="id"/>"
+                                                    name="<s:property value="name"/>"
+                                                    onclick="showEditModal(this)">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                update
+                                            </button>
+                                            &middot;
+                                            <button class="btn btn-link btn-sm" id_instance="<s:property value="id"/>"
+                                                    onclick="showDeleteModal(this)">
+                                                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                delete
+                                            </button>
+                                            &middot;
+                                            <a href="/generateCategoryPDF.action?id=<s:property value="id"/>">PDF</a>
+                                                <%--<a href="/generateAnalysePDF.action?id=<s:property value="id"/>">PDF</a>--%>
+                                        </td>
+                                    </tr>
+                                </s:iterator>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="form-group">
-                            <label>Password: </label>
-                            <input type="password" required class="form-control" name="user.password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm add-btn pull-right">Add</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
     <!-- /#page-wrapper -->
 
@@ -163,6 +207,28 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="dist/js/sb-admin-2.js"></script>
+
+<script>
+    function showAddModal()
+    {
+        $('.categories_add_modal').modal();
+    }
+
+    function showEditModal(instance)
+    {
+        $('#categories_edit_id').val($(instance).attr('id'));
+        $('#categories_edit_name').val($(instance).attr('name'));
+        $('.categories_edit_modal').modal();
+    }
+
+    function showDeleteModal(instance)
+    {
+        var id = $(instance).attr('id_instance');
+        $('#categories_delete_id').val(id);
+        $('.categories_delete_modal').modal();
+    }
+</script>
+
 
 </body>
 

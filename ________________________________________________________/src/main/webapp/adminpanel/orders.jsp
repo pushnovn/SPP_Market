@@ -125,6 +125,9 @@
                 <div class="col-md-12">
                     <!-- Table -->
                     <div class="panel-heading">
+                        <a href="/generateOrdersXLS.action">Generate XLS</a>
+                        &middot;
+                        <a href="/generateOrdersCSV.action">Generate CSV</a>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -152,7 +155,7 @@
                                         </td>
                                         <td><s:property value="amount"></s:property></td>
                                         <td>
-                                            <a href="#"id"/>">PDF</a>
+                                            <a href="/generateOrderPDF.action?id=<s:property value="id"/>">PDF</a>
 
                                         </td>
                                     </tr>

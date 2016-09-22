@@ -85,7 +85,7 @@
                     <li>
                         <a href="adminpanel-users.action"><i class="fa fa-fw fa-users"></i> Users</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="adminpanel-add-admin.action"><i class="fa fa-fw fa-plus"></i> Add admin</a>
                     </li>
                     <li>
@@ -94,7 +94,7 @@
                     <li>
                         <a href="adminpanel-orders.action"><i class="fa fa-fw fa-usd"></i> Orders</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="adminpanel-markets.action"><i class="fa fa-fw fa-building"></i> Markets</a>
                     </li>
                 </ul>
@@ -104,6 +104,10 @@
         <!-- /.navbar-static-side -->
     </nav>
 
+    <%@include file='markets-add-modal.jsp'%>
+    <%@include file='markets-edit-modal.jsp'%>
+    <%@include file='markets-delete-modal.jsp'%>
+
     <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -112,7 +116,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Add new admin
+                        Markets
                     </h1>
                 </div>
             </div>
@@ -122,26 +126,70 @@
 
         <div id="page-inner">
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <div style="color: red;">
-                        <s:property value="errorString"></s:property>
+                <div class="col-md-12">
+                    <!-- Table -->
+                    <div class="panel-heading">
+                        <button class="btn btn-default btn-sm" onclick="showAddModal()">
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            Add new market
+                        </button>
+                        &middot;
+                        <a href="/generateMarketsXLS.action">Generate XLS</a>
+                        &middot;
+                        <a href="/generateMarketsCSV.action">Generate CSV</a>
                     </div>
-                    <form method="post" action="adminpanel-newadmin.action">
-                        <div class="form-group">
-                            <label>Login: </label>
-                            <input type="text" required class="form-control" name="user.login">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <div style="color: red;">
+                                <s:property value="errorString"></s:property>
+                            </div>
+                            <p>Markets list:</p>
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>name</th>
+                                    <th>address</th>
+                                    <th>actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <s:iterator value="marketsList" var="market">
+                                    <tr>
+                                        <td><s:property value="id"></s:property></td>
+                                        <td><s:property value="name"></s:property></td>
+                                        <td><s:property value="address"></s:property></td>
+                                        <td>
+                                            <button class="btn btn-link btn-sm"
+                                                    id="<s:property value="id"/>"
+                                                    name="<s:property value="name"/>"
+                                                    address="<s:property value="address"/>"
+                                                    onclick="showEditModal(this)">
+                                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                                update
+                                            </button>
+                                            &middot;
+                                            <button class="btn btn-link btn-sm" id_instance="<s:property value="id"/>"
+                                                    onclick="showDeleteModal(this)">
+                                                <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                                                delete
+                                            </button>
+                                            &middot;
+                                            <a href="/generateMarketPDF.action?id=<s:property value="id"/>">PDF</a>
+                                                <%--<a href="/generateAnalysePDF.action?id=<s:property value="id"/>">PDF</a>--%>
+                                        </td>
+                                    </tr>
+                                </s:iterator>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="form-group">
-                            <label>Password: </label>
-                            <input type="password" required class="form-control" name="user.password">
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-sm add-btn pull-right">Add</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
+
+</div>
     <!-- /#page-wrapper -->
 
 </div>
@@ -163,6 +211,28 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="dist/js/sb-admin-2.js"></script>
+
+<script>
+    function showAddModal()
+    {
+        $('.markets_add_modal').modal();
+    }
+
+    function showEditModal(instance)
+    {
+        $('#markets_edit_id').val($(instance).attr('id'));
+        $('#markets_edit_name').val($(instance).attr('name'));
+        $('#markets_edit_address').val($(instance).attr('address'));
+        $('.markets_edit_modal').modal();
+    }
+
+    function showDeleteModal(instance)
+    {
+        var id = $(instance).attr('id_instance');
+        $('#warehouses_delete_id').val(id);
+        $('.warehouses_delete_modal').modal();
+    }
+</script>
 
 </body>
 

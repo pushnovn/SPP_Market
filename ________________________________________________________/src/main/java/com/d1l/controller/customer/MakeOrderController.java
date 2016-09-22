@@ -51,7 +51,8 @@ public class MakeOrderController extends ActionSupport {
 
         List<ItemInfoForOrder> items;
 
-        if
+        if (session.containsKey("itemsForOrder")) {
+            items = (List<ItemInfoForOrder>)session.get("itemsForOrder");
         } else {
             return Action.SUCCESS;
         }
