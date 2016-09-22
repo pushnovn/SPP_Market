@@ -32,11 +32,9 @@ public class OrdersController extends ActionSupport {
                 List<ItemReport> itemReports = new ArrayList<ItemReport>();
                 for (OrderItem orderItem : orderItems) {
                     Item item = ItemDao.getItemById(orderItem.getItemId());
-<<<<<<< HEAD
                 }
 
                 OrderReport orderReport = new OrderReport();            }
-=======
 
                     ItemReport itemReport = new ItemReport();
                     itemReport.setItem(item);
@@ -53,7 +51,6 @@ public class OrdersController extends ActionSupport {
                 orderReport.setId(order.getId());
                 orderReports.add(orderReport);
             }
->>>>>>> origin/master
         }
         return Action.SUCCESS;
     }
