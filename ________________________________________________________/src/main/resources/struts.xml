@@ -69,6 +69,23 @@
             <result name="error">/main/signup-page.jsp</result>
         </action>
 
+<action name="login" class="com.d1l.service.Authorisation" method="login">
+            <interceptor-ref name="disroleStackUser"/>
+            <result name="success" type="chain">main</result>
+            <result name="login" type="chain">authorisation</result>
+        </action>
+
+        <action name="logout" class="com.d1l.service.Authorisation" method="logout">
+            <interceptor-ref name="roleStackUser"/>
+            <result name="success" type="redirect">/</result>
+        </action>
+
+        
+
+
+
+
+
     </package>
 
 
