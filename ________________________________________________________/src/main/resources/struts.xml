@@ -39,8 +39,13 @@
             <result name="success">/main/index.jsp</result>
         </action>
 
+        <action name="about" class="com.d1l.controller.MainController" method="about">
+            <result name="success">/main/about.jsp</result>
+        </action>
 
-        <action name="authorisation" class="com.d1l.service.Authorisation">
+
+        
+        <action name="authorisation" class="        com.d1l.service.Authorisation">
             <interceptor-ref name="disroleStackUser"/>
             <result name="success">/main/signin-page.jsp</result>
             <result name="error">/main/signin-error-page.jsp</result>
@@ -52,7 +57,17 @@
             <result name="success">/main/signup-page.jsp</result>
         </action>
 
+        <action name="signup-as-customer" class="com.d1l.service.Registration" method="singupAsCustomer">
+            <interceptor-ref name="disroleStackUser"/>
+            <result name="success" type="chain">main</result>
+            <result name="error">/main/signup-page.jsp</result>
+        </action>
 
+        <action name="signup-as-supplier" class="com.d1l.service.Registration" method="singupAsSupplier">
+            <interceptor-ref name="disroleStackUser"/>
+            <result name="success" type="chain">main</result>
+            <result name="error">/main/signup-page.jsp</result>
+        </action>
 
     </package>
 
