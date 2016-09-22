@@ -125,7 +125,68 @@ public class DocumentGenerator {
         return stream;
     }
 
-   
+   public static ByteArrayOutputStream generateOrdersInXLS() throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("order");
+        HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+        HSSFCellStyle style = workbook.createCellStyle();
+        HSSFFont boldFont = workbook.createFont();
+        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        headerCellStyle.setFont(boldFont);
+
+        HSSFRow row = sheet.createRow(0);
+        HSSFCell cell = row.createCell(0);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Order Number"));
+        cell = row.createCell(1);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Customer"));
+        cell = row.createCell(2);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Date"));
+        cell = row.createCell(3);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Items"));
+
+        sheet.autoSizeColumn(0);
+        headerCellStyle.setWrapText(true);
+        style.setWrapText(true);
+        int[] columnWidths = {20, 20, 20, 20};
+        for (int i = 0; i < columnWidths.length; i++) {
+            columnWidths[i] = columnWidths[i] * 256;
+        }
+
+        List<Order> orderList = OrderDao.getOrdersList();
+        for (int i = 0; i < orderList.size(); i++ ) {
+            row = sheet.createRow(i+1);
+            row.setRowStyle(style);
+            List<String> ordersRow = setOrdersRow(orderList.get(i));
+            for (int j = 0; j < 4; j ++) {
+                cell = row.createCell(j);
+                cell.setCellStyle(style);
+                HSSFRichTextString orderNumberCellValue;
+                if (j != 3)
+                    orderNumberCellValue = new HSSFRichTextString(ordersRow.get(j));
+                else {
+                    String result = "";
+                    for (int k = 3; k < ordersRow.size(); k++) {
+                        result += ordersRow.get(k) + "\n";
+                    }
+                    orderNumberCellValue = new HSSFRichTextString(result);
+                }
+                sheet.autoSizeColumn(j);
+                cell.setCellValue(orderNumberCellValue);
+                sheet.autoSizeColumn(j);
+
+                sheet.setColumnWidth(j, columnWidths[j]);
+            }
+
+        }
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        workbook.write(stream);
+        return  stream;
+    }
 
     public static ByteArrayOutputStream generateOrdersInCSV() throws IOException {
         String[] fileHeader = {"Order Number", "Customer", "Date", "Items"};
@@ -164,7 +225,100 @@ public class DocumentGenerator {
     }
 
 
-    
+    public static ByteArrayOutputStream generateMarketsInPDFById(int id) {
+        Document document = new Document(PageSize.A6, 30, 20, 20, 30);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        PdfWriter pdfWriter = null;
+        try {
+            pdfWriter = PdfWriter.getInstance(document, stream);
+            document.open();
+            addWaterMark(pdfWriter);
+            Market market = MarketDao.getMarketById(id);
+            List<String> marketsRow = setMarketsRow(market);
+
+            Paragraph marketNumber = new Paragraph();
+            marketNumber.add(new Chunk("Market #", FONT_FOR_OBJECT_NAME));
+            marketNumber.add(new Chunk(marketsRow.get(0), COMMON_FONT));
+            marketNumber.setAlignment(Element.ALIGN_CENTER);
+            document.add(marketNumber);
+            document.add(Chunk.NEWLINE);
+            Paragraph name = new Paragraph();
+            name.add(new Chunk("Name: ", FONT_FOR_OBJECT_NAME));
+            name.add(new Chunk(marketsRow.get(1), COMMON_FONT));
+            document.add(name);
+            document.add(Chunk.NEWLINE);
+            Paragraph address = new Paragraph();
+            address.add(new Chunk("Address: ", FONT_FOR_OBJECT_NAME));
+            address.add(new Chunk(marketsRow.get(2), COMMON_FONT));
+            document.add(address);
+            document.add(Chunk.NEWLINE);
+            document.addAuthor("Market Service Systems");
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } finally {
+            if (document != null) {
+                document.close();
+            }
+            if (pdfWriter != null) {
+                document.close();
+            }
+        }
+        return stream;
+    }
+
+    public static ByteArrayOutputStream generateMarketsInXLS() throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("market");
+
+        HSSFCellStyle style = workbook.createCellStyle();
+        HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+
+        HSSFFont boldFont = workbook.createFont();
+
+        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        headerCellStyle.setFont(boldFont);
+
+        HSSFRow row = sheet.createRow(0);
+        HSSFCell cell = row.createCell(0);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Market Number"));
+        cell = row.createCell(1);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Name"));
+        cell = row.createCell(2);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Address"));
+        sheet.autoSizeColumn(0);
+        style.setWrapText(true);
+        headerCellStyle.setWrapText(true);
+        int[] columnWidths = {17, 10, 10, 20, 20};
+        for (int i = 0; i < columnWidths.length; i++) {
+            columnWidths[i] = columnWidths[i] * 256;
+        }
+        List<Market> marketsList = MarketDao.getMarketsList();
+        for (int i = 0; i < marketsList.size(); i++ ) {
+            row = sheet.createRow(i+1);
+            row.setRowStyle(style);
+            List<String> ordersRow = setMarketsRow(marketsList.get(i));
+            for (int j = 0; j < ordersRow.size(); j ++) {
+                cell = row.createCell(j);
+                cell.setCellStyle(style);
+                HSSFRichTextString orderNumberCellValue = new HSSFRichTextString(ordersRow.get(j));
+
+                cell.setCellValue(orderNumberCellValue);
+                sheet.autoSizeColumn(j);
+
+                sheet.setColumnWidth(j, columnWidths[j]);
+
+            }
+
+        }
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        workbook.write(stream);
+        return  stream;
+    }
+
     public static ByteArrayOutputStream generateMarketsInCSV() throws IOException {
         String[] fileHeader = {"Market Number", "Name", "Address"};
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -228,6 +382,56 @@ public class DocumentGenerator {
             }
         }
         return stream;
+    }
+
+    public static ByteArrayOutputStream generateCategoriesInXLS() throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("category");
+
+        HSSFCellStyle style = workbook.createCellStyle();
+        HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+
+        HSSFFont boldFont = workbook.createFont();
+
+        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        headerCellStyle.setFont(boldFont);
+
+        HSSFRow row = sheet.createRow(0);
+        HSSFCell cell = row.createCell(0);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Category Number"));
+        cell = row.createCell(1);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Name"));
+        sheet.autoSizeColumn(0);
+        style.setWrapText(true);
+        headerCellStyle.setWrapText(true);
+        int[] columnWidths = {17, 10, 10, 20, 20};
+        for (int i = 0; i < columnWidths.length; i++) {
+            columnWidths[i] = columnWidths[i] * 256;
+        }
+        List<Category> categoriesList = CategoryDao.getCategoriesList();
+        for (int i = 0; i < categoriesList.size(); i++ ) {
+            row = sheet.createRow(i+1);
+            row.setRowStyle(style);
+            List<String> carsRow = setCategoriesRow(categoriesList.get(i));
+            for (int j = 0; j < carsRow.size(); j ++) {
+                cell = row.createCell(j);
+                cell.setCellStyle(style);
+                HSSFRichTextString orderNumberCellValue = new HSSFRichTextString(carsRow.get(j));
+
+                cell.setCellValue(orderNumberCellValue);
+                sheet.autoSizeColumn(j);
+
+                sheet.setColumnWidth(j, columnWidths[j]);
+
+            }
+
+        }
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        workbook.write(stream);
+        return  stream;
     }
 
 
