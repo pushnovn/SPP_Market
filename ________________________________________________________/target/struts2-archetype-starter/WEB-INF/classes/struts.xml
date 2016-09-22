@@ -39,6 +39,13 @@
             <result name="success">/main/index.jsp</result>
         </action>
 
+        <action name="about" class="com.d1l.controller.MainController" method="about">
+            <result name="success">/main/about.jsp</result>
+        </action>
+
+        <action name="find-details" class="com.d1l.controller.FindItemsController">
+            <result name="success">/main/find-detail-page.jsp</result>
+        </action>
 
         <action name="authorisation" class="com.d1l.service.Authorisation">
             <interceptor-ref name="disroleStackUser"/>
@@ -52,6 +59,199 @@
             <result name="success">/main/signup-page.jsp</result>
         </action>
 
+        <action name="signup-as-customer" class="com.d1l.service.Registration" method="singupAsCustomer">
+            <interceptor-ref name="disroleStackUser"/>
+            <result name="success" type="chain">main</result>
+            <result name="error">/main/signup-page.jsp</result>
+        </action>
+
+        <action name="signup-as-supplier" class="com.d1l.service.Registration" method="singupAsSupplier">
+            <interceptor-ref name="disroleStackUser"/>
+            <result name="success" type="chain">main</result>
+            <result name="error">/main/signup-page.jsp</result>
+        </action>
+
+        <action name="login" class="com.d1l.service.Authorisation" method="login">
+            <interceptor-ref name="disroleStackUser"/>
+            <result name="success" type="chain">main</result>
+            <result name="login" type="chain">authorisation</result>
+        </action>
+
+        <action name="logout" class="com.d1l.service.Authorisation" method="logout">
+            <interceptor-ref name="roleStackUser"/>
+            <result name="success" type="redirect">/</result>
+        </action>
+
+        <action name="adminpanel">
+            <interceptor-ref name="roleStack"/>
+            <result type="redirect">/adminpanel/index.jsp</result>
+        </action>
+
+        <action name="adminpanel-users" class="com.d1l.controller.adminpanel.UsersController">
+            <interceptor-ref name="roleStack"/>
+            <result name="success">/adminpanel/users.jsp</result>
+        </action>
+
+        <action name="adminpanel-users-delete" class="com.d1l.controller.adminpanel.UsersController" method="delete">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-users</result>
+        </action>
+
+        <action name="adminpanel-add-admin" class="com.d1l.controller.adminpanel.UsersController">
+            <interceptor-ref name="roleStack"/>
+            <result name="success">/adminpanel/add-admins.jsp</result>
+        </action>
+
+        <action name="adminpanel-newadmin" class="com.d1l.controller.adminpanel.AddAdminController" method="add">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-users</result>
+            <result name="error" type="chain">adminpanel-add-admin</result>
+        </action>
+
+        <action name="adminpanel-categories" class="com.d1l.controller.adminpanel.CategoriesController">
+            <interceptor-ref name="roleStack"/>
+            <result name="success">/adminpanel/categories.jsp</result>
+        </action>
+
+        <action name="adminpanel-categories-add" class="com.d1l.controller.adminpanel.CategoriesController" method="add">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-categories</result>
+            <result name="error" type="chain">adminpanel-categories</result>
+        </action>
+
+        <action name="adminpanel-categories-update" class="com.d1l.controller.adminpanel.CategoriesController" method="update">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-categories</result>
+            <result name="error" type="chain">adminpanel-categories</result>
+        </action>
+
+        <action name="adminpanel-categories-delete" class="com.d1l.controller.adminpanel.CategoriesController" method="delete">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-categories</result>
+            <result name="error" type="chain">adminpanel-categories</result>
+        </action>
+
+        <action name="adminpanel-orders" class="com.d1l.controller.adminpanel.OrdersController">
+            <interceptor-ref name="roleStack"/>
+            <result name="success">/adminpanel/orders.jsp</result>
+        </action>
+
+        <action name="adminpanel-markets" class="com.d1l.controller.adminpanel.MarketsController">
+            <interceptor-ref name="roleStack"/>
+            <result name="success">/adminpanel/markets.jsp</result>
+        </action>
+
+        <action name="adminpanel-markets-add" class="com.d1l.controller.adminpanel.MarketsController" method="add">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-markets</result>
+            <result name="error" type="chain">adminpanel-markets</result>
+        </action>
+
+        <action name="adminpanel-markets-update" class="com.d1l.controller.adminpanel.MarketsController" method="update">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-markets</result>
+            <result name="error" type="chain">adminpanel-markets</result>
+        </action>
+
+        <action name="adminpanel-markets-delete" class="com.d1l.controller.adminpanel.MarketsController" method="delete">
+            <interceptor-ref name="roleStack"/>
+            <result name="success" type="chain">adminpanel-markets</result>
+            <result name="error" type="chain">adminpanel-markets</result>
+        </action>
+
+        <action name="customer-dashboard">
+            <interceptor-ref name="defaultStack"/>
+            <result type="redirect">/customer-dashboard/index.jsp</result>
+        </action>
+
+        <action name="customer-dashboard-make-order" class="com.d1l.controller.customer.MakeOrderController">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/customer-dashboard/make-order.jsp</result>
+        </action>
+
+        <action name="customer-dashboard-show-orders" class="com.d1l.controller.customer.OrdersController">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/customer-dashboard/show-orders.jsp</result>
+        </action>
+
+        <action name="customer-dashboard-show-items" class="com.d1l.controller.customer.ItemsController">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/customer-dashboard/show-items.jsp</result>
+        </action>
+
+        <action name="show-items-add" class="com.d1l.controller.customer.ItemsController" method="addItemForOrder">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="chain">customer-dashboard-show-items</result>
+        </action>
+
+        <action name="customer-make-order" class="com.d1l.controller.customer.MakeOrderController" method="makeOrder">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="chain">customer-dashboard-show-orders</result>
+        </action>
+
+        <action name="supplier-dashboard">
+            <interceptor-ref name="defaultStack"/>
+            <result type="redirect">/supplier-dashboard/index.jsp</result>
+        </action>
+
+        <action name="supplier-dashboard-orders" class="com.d1l.controller.supplier.OrdersController">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/supplier-dashboard/orders.jsp</result>
+        </action>
+
+        <action name="supplier-dashboard-items" class="com.d1l.controller.supplier.ItemsController">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/supplier-dashboard/items.jsp</result>
+        </action>
+
+        <action name="supplier-dashboard-items-add" class="com.d1l.controller.supplier.ItemsController" method="add">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="chain">supplier-dashboard-items</result>
+            <result name="error" type="chain">supplier-dashboard-items</result>
+        </action>
+
+        <action name="supplier-dashboard-items-edit" class="com.d1l.controller.supplier.ItemsController" method="update">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="chain">supplier-dashboard-items</result>
+            <result name="error" type="chain">supplier-dashboard-items</result>
+        </action>
+
+        <action name="supplier-dashboard-items-delete" class="com.d1l.controller.supplier.ItemsController" method="delete">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="chain">supplier-dashboard-items</result>
+            <result name="error" type="chain">supplier-dashboard-items</result>
+        </action>
+
+
+        <action name="generateOrderPDF" class="com.d1l.controller.DocumentController" method="getOrderPDF">
+
+        </action>
+        <action name="generateOrdersXLS" class="com.d1l.controller.DocumentController" method="getOrdersXLS">
+
+        </action>
+        <action name="generateOrdersCSV" class="com.d1l.controller.DocumentController" method="getOrdersCSV">
+
+        </action>
+
+        <action name="generateMarketPDF" class="com.d1l.controller.DocumentController" method="getMarketPDF">
+
+        </action>
+        <action name="generateMarketsXLS" class="com.d1l.controller.DocumentController" method="getMarketsXLS">
+
+        </action>
+        <action name="generateMarketsCSV" class="com.d1l.controller.DocumentController" method="getMarketsCSV">
+
+        </action>
+
+        <action name="generateCategoryPDF" class="com.d1l.controller.DocumentController" method="getCategoryPDF">
+
+        </action>
+        <action name="generateCategoriesXLS" class="com.d1l.controller.DocumentController" method="getCategoriesXLS">
+
+        </action>
+        <action name="generateCategoriesCSV" class="com.d1l.controller.DocumentController" method="getCategoriesCSV">
+
+        </action>
 
 
     </package>

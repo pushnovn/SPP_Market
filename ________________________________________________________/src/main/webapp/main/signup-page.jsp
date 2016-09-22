@@ -33,6 +33,7 @@
                                 </a>
                             </li>
 						</ul>
+
 						<div id="myTabContent" class="tab-content">
 							<div class="tab-pane active in" id="ascustomer">
 								<form class="form-horizontal" action='signup-as-customer.action' method="POST">
@@ -61,6 +62,10 @@
 										</div>
 										&nbsp;
 										<div class="form-group">
+                                            <div style="color: red;">
+                                                <s:property value="errorMessageForCostumer" />
+                                            </div>
+                                            <br/>
 											<div class="controls">
 												<button class="btn btn-primary" type="submit">Create account</button>
 											</div>
@@ -68,6 +73,7 @@
 									</fieldset>
 								</form>
 							</div>
+
 							<div class="tab-pane fade" id="assupplier">
 								<form class="form-horizontal" action='signup-as-supplier.action' method="POST">
 									<fieldset>
@@ -90,8 +96,9 @@
 										&nbsp;
 										<div class="form-group">
                                             <div style="color: red;">
-                                                <s:property value="message"></s:property>
+                                                <s:property value="errorMessageForSupplier"/>
                                             </div>
+                                            </br>
 											<div class="controls">
 												<button class="btn btn-primary" type="submit">Create account</button>
 											</div>
