@@ -125,68 +125,7 @@ public class DocumentGenerator {
         return stream;
     }
 
-    public static ByteArrayOutputStream generateOrdersInXLS() throws IOException {
-        HSSFWorkbook workbook = new HSSFWorkbook();
-        HSSFSheet sheet = workbook.createSheet("order");
-        HSSFCellStyle headerCellStyle = workbook.createCellStyle();
-        HSSFCellStyle style = workbook.createCellStyle();
-        HSSFFont boldFont = workbook.createFont();
-        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-        headerCellStyle.setFont(boldFont);
-
-        HSSFRow row = sheet.createRow(0);
-        HSSFCell cell = row.createCell(0);
-        cell.setCellStyle(headerCellStyle);
-        cell.setCellValue(new HSSFRichTextString("Order Number"));
-        cell = row.createCell(1);
-        cell.setCellStyle(headerCellStyle);
-        cell.setCellValue(new HSSFRichTextString("Customer"));
-        cell = row.createCell(2);
-        cell.setCellStyle(headerCellStyle);
-        cell.setCellValue(new HSSFRichTextString("Date"));
-        cell = row.createCell(3);
-        cell.setCellStyle(headerCellStyle);
-        cell.setCellValue(new HSSFRichTextString("Items"));
-
-        sheet.autoSizeColumn(0);
-        headerCellStyle.setWrapText(true);
-        style.setWrapText(true);
-        int[] columnWidths = {20, 20, 20, 20};
-        for (int i = 0; i < columnWidths.length; i++) {
-            columnWidths[i] = columnWidths[i] * 256;
-        }
-
-        List<Order> orderList = OrderDao.getOrdersList();
-        for (int i = 0; i < orderList.size(); i++ ) {
-            row = sheet.createRow(i+1);
-            row.setRowStyle(style);
-            List<String> ordersRow = setOrdersRow(orderList.get(i));
-            for (int j = 0; j < 4; j ++) {
-                cell = row.createCell(j);
-                cell.setCellStyle(style);
-                HSSFRichTextString orderNumberCellValue;
-                if (j != 3)
-                    orderNumberCellValue = new HSSFRichTextString(ordersRow.get(j));
-                else {
-                    String result = "";
-                    for (int k = 3; k < ordersRow.size(); k++) {
-                        result += ordersRow.get(k) + "\n";
-                    }
-                    orderNumberCellValue = new HSSFRichTextString(result);
-                }
-                sheet.autoSizeColumn(j);
-                cell.setCellValue(orderNumberCellValue);
-                sheet.autoSizeColumn(j);
-
-                sheet.setColumnWidth(j, columnWidths[j]);
-            }
-
-        }
-
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        workbook.write(stream);
-        return  stream;
-    }
+   
 
     public static ByteArrayOutputStream generateOrdersInCSV() throws IOException {
         String[] fileHeader = {"Order Number", "Customer", "Date", "Items"};
@@ -225,8 +164,7 @@ public class DocumentGenerator {
     }
 
 
-
-
+    
     public static ByteArrayOutputStream generateMarketsInCSV() throws IOException {
         String[] fileHeader = {"Market Number", "Name", "Address"};
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -246,6 +184,71 @@ public class DocumentGenerator {
         return stream;
     }
 
-    
+    private static List<String> setCategoriesRow(Category category) {
+        List<String> categoriesRow = new LinkedList<String>();
+        categoriesRow.add(String.format("%d", category.getId()));
+
+        categoriesRow.add(String.format("%s ", category.getName()));
+
+        return categoriesRow;
+    }
+
+
+    public static ByteArrayOutputStream generateCategoriesInPDFById(int id) {
+        Document document = new Document(PageSize.A6, 30, 20, 20, 30);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        PdfWriter pdfWriter = null;
+        try {
+            pdfWriter = PdfWriter.getInstance(document, stream);
+            document.open();
+            addWaterMark(pdfWriter);
+            Category category = CategoryDao.getCategoryById(id);
+            List<String> categoriesRow = setCategoriesRow(category);
+
+            Paragraph categoryNumber = new Paragraph();
+            categoryNumber.add(new Chunk("Category #", FONT_FOR_OBJECT_NAME));
+            categoryNumber.add(new Chunk(categoriesRow.get(0), COMMON_FONT));
+            categoryNumber.setAlignment(Element.ALIGN_CENTER);
+            document.add(categoryNumber);
+            document.add(Chunk.NEWLINE);
+            Paragraph name = new Paragraph();
+            name.add(new Chunk("Name: ", FONT_FOR_OBJECT_NAME));
+            name.add(new Chunk(categoriesRow.get(1), COMMON_FONT));
+            document.add(name);
+            document.add(Chunk.NEWLINE);
+            document.addAuthor("Market Service Systems");
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } finally {
+            if (document != null) {
+                document.close();
+            }
+            if (pdfWriter != null) {
+                document.close();
+            }
+        }
+        return stream;
+    }
+
+
+    public static ByteArrayOutputStream generateCategoriesInCSV() throws IOException {
+        String[] fileHeader = {"Category Number", "Name"};
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        writer.writeNext(fileHeader);
+        List<String[]> categoriesInString = new LinkedList<String[]>();
+        List<Category> categoriesList = CategoryDao.getCategoriesList();
+        for (int i = 0; i < categoriesList.size(); i++) {
+            List<String> categoriesRow = setCategoriesRow(categoriesList.get(i));
+            String[] tempArray = {categoriesRow.get(0), categoriesRow.get(1)};
+            categoriesInString.add(tempArray);
+        }
+
+        writer.writeAll(categoriesInString);
+        writer.close();
+        return stream;
+    }
+
 
 }
