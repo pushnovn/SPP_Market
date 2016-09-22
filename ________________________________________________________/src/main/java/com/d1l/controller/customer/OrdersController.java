@@ -1,0 +1,65 @@
+package com.d1l.controller.customer;
+
+import com.d1l.dao.*;
+import com.d1l.model.*;
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class OrdersController extends ActionSupport {
+
+    private List<Order> ordersList;
+    private List<OrderItem> orderItems;
+    private List<OrderReport> orderReports;
+
+    @Override
+    public String execute() throws Exception {
+        Map session = ActionContext.getContext().getSession();
+        if(session.containsKey("id")) {
+            ordersList = OrderDao.getOrdersListByCustomer(
+                    CustomerDao.getCustomerByUser(
+                            UserDao.getUserById(Integer.parseInt(session.get("id").toString()))));
+
+            orderReports = new ArrayList<OrderReport>();
+            for (Order order : ordersList) {
+                orderItems = OrderItemDao.getOrderItemsByOrderId(order.getId());
+
+                int amount = 0;
+                List<ItemReport> itemReports = new ArrayList<ItemReport>();
+                for (OrderItem orderItem : orderItems) {
+                    Item item = ItemDao.getItemById(orderItem.getItemId());
+                }
+
+                OrderReport orderReport = new OrderReport();            }
+        }
+        return Action.SUCCESS;
+    }
+
+    public List<OrderReport> getOrderReports() {
+        return orderReports;
+    }
+
+    public void setOrderReports(List<OrderReport> orderReports) {
+        this.orderReports = orderReports;
+    }
+
+    public List<Order> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Order> ordersList) {
+        this.ordersList = ordersList;
+    }
+
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItem> orderItems) {
+        this.orderItems = orderItems;
+    }
+}
