@@ -32,9 +32,28 @@ public class OrdersController extends ActionSupport {
                 List<ItemReport> itemReports = new ArrayList<ItemReport>();
                 for (OrderItem orderItem : orderItems) {
                     Item item = ItemDao.getItemById(orderItem.getItemId());
+<<<<<<< HEAD
                 }
 
                 OrderReport orderReport = new OrderReport();            }
+=======
+
+                    ItemReport itemReport = new ItemReport();
+                    itemReport.setItem(item);
+                    itemReport.setCount(orderItem.getCount());
+                    itemReports.add(itemReport);
+
+                    amount += item.getPrice();
+                }
+
+                OrderReport orderReport = new OrderReport();
+                orderReport.setCustomer(CustomerDao.getCustomerById(order.getCustomer().getId()));
+                orderReport.setItemsList(itemReports);
+                orderReport.setAmount(amount);
+                orderReport.setId(order.getId());
+                orderReports.add(orderReport);
+            }
+>>>>>>> origin/master
         }
         return Action.SUCCESS;
     }
