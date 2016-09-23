@@ -63,9 +63,15 @@
 										&nbsp;
 										<div class="form-group">
                                             <div style="color: red;">
-                                                <s:property value="errorMessageForCostumer" />
+                                                                        <!--<s:property value="errorMessageForCostumer" />-->
+                                                <s:iterator value="arrayListOfErrorMessagesForCostumer"/>
+                                                <ul>
+                                                    <s:iterator value="arrayListOfErrorMessagesForCostumer">
+                                                        <li><s:property/></li>
+                                                    </s:iterator>
+                                                </ul>
                                             </div>
-                                            <br/>
+                                            </br>
 											<div class="controls">
 												<button class="btn btn-primary" type="submit">Create account</button>
 											</div>

@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -29,8 +30,11 @@ public class Registration extends ActionSupport implements SessionAware {
     private String companyName;
     private String errorMessageForAllTypesOfUsers = "errorMessageForAllTypesOfUsers";
     private String errorMessageForCostumer;
+    private ArrayList<String> arrayListOfErrorMessagesForCostumer = new ArrayList<String>();
+    private ArrayList<String> arrayListOfErrorMessagesForSupplier = new ArrayList<String>();
+
+
     private String errorMessageForSupplier = "ooooooooooooooooooooo";
-    private String greenString = "I'm green string.";
 
     public String getLogin() {
         return login;
@@ -117,7 +121,7 @@ public class Registration extends ActionSupport implements SessionAware {
                     getLogin(), getPassword(), getFirstname(),getLastname(), getMiddlename()
                 ))
             {
-                setMessageOnJSP("errorMessageForCostumer","Please, check the fields.");
+                setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
                 return Action.ERROR;
             }
 
@@ -153,25 +157,25 @@ public class Registration extends ActionSupport implements SessionAware {
             setMessageOnJSP("errorMessageForCostumer","Something go wrong... Please, try one more time.");
             return Action.SUCCESS;
         }
-
-
     }
 
-    private void setMessageOnJSP(String key, String message)
+    private void setMessageOnJSP(String key, Object value)
     {
         ValueStack stack = ActionContext.getContext().getValueStack();
         Map<String, Object> context = new HashMap<String, Object>();
 
-        context.put(key, message);
+        context.put(key, value);
         stack.push(context);
     }
 
 
-    public String singupAsSupplier() throws  Exception {
+    public String singupAsSupplier() throws  Exception
+    {
 
         if (!validateSupplier(getLogin(), getPassword(), getCompanyName())) return Action.ERROR;
 
-        if (UserDao.getUserByLogin(this.login) != null) {
+        if (UserDao.getUserByLogin(this.login) != null)
+        {
             errorMessageForSupplier = "User with this login already exist";
             return Action.ERROR;
         }
@@ -196,69 +200,84 @@ public class Registration extends ActionSupport implements SessionAware {
         return Action.SUCCESS;
     }
 
-    private boolean validateSupplier(String login, String password, String companyName) {
+    private boolean validateSupplier(String login, String password, String companyName)
+    {
+        boolean correctness = true;
+
         Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
         Matcher m = loginPattern.matcher(login);
         if (!m.matches())
         {
-            errorMessageForSupplier = "The login is invalid";
-            return false;
+            arrayListOfErrorMessagesForSupplier.add("The login is invalid.");
+            correctness = false;
         }
         Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
         m = passwordPattern.matcher(password);
         if (!m.matches())
         {
-            errorMessageForSupplier = "The password is invalid";
-            return false;
+            arrayListOfErrorMessagesForSupplier.add("The password is invalid.");
+            correctness = false;
         }
-        Pattern companyNamePattern = Pattern.compile("^[A-Za-z0-9\\s]{1,60}$");
+        Pattern companyNamePattern = Pattern.compile("^[A-Za-z0-9-\\s]{1,60}$");
         m = companyNamePattern.matcher(companyName);
         if (!m.matches())
         {
-            errorMessageForSupplier = "The company name is invalid";
-            return false;
+            arrayListOfErrorMessagesForSupplier.add("The company name is invalid.");
+            correctness = false;
         }
-        return true;
+
+        return correctness;
     }
 
     private boolean validateCustomer(String login, String password, String firstname,
-                                     String lastname, String middlename) {
+                                     String lastname, String middlename)
+    {
+        boolean correctness = true;
+        errorMessageForCostumer = "";
 
         Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
         Matcher m = loginPattern.matcher(login);
         if (!m.matches())
         {
-            errorMessageForCostumer = "The login is invalid";
-            return false;
+            errorMessageForCostumer += "The login is invalid\n";
+            arrayListOfErrorMessagesForCostumer.add("The login is invalid.");
+            correctness = false;
         }
+
+
         Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
         m = passwordPattern.matcher(password);
         if (!m.matches())
         {
-            errorMessageForCostumer = "The password is invalid";
-            return false;
+            errorMessageForCostumer += "The password is invalid";
+            arrayListOfErrorMessagesForCostumer.add("The password is invalid.");
+            correctness = false;
         }
+
+
         Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,60}$");
+
         m = namePattern.matcher(firstname);
         if (!m.matches())
         {
-            errorMessageForCostumer = "The firstname is invalid";
-            return false;
+            arrayListOfErrorMessagesForCostumer.add("The firstname is invalid.");
+            correctness = false;
         }
         m = namePattern.matcher(lastname);
         if (!m.matches())
         {
-            errorMessageForCostumer = "The lastname is invalid";
-            return false;
+            arrayListOfErrorMessagesForCostumer.add("The lastname is invalid.");
+            correctness = false;
         }
-        Pattern midnamePattern = Pattern.compile("^[A-Za-z\\s]{0,60}$");
-        m = midnamePattern.matcher(getFirstname());
+        m = namePattern.matcher(middlename);
         if (!m.matches())
         {
-            errorMessageForCostumer = "The middlename is invalid";
-            return false;
+            arrayListOfErrorMessagesForCostumer.add("The middlename is invalid.");
+            correctness = false;
         }
-        return true;
+
+
+        return correctness;
     }
 
 }

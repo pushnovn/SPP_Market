@@ -254,7 +254,14 @@
         </action>
 
 
+
+        <action name="*">
+            <result>/error.jsp</result>
+        </action>
+
+
     </package>
+
 
 
 </struts>
