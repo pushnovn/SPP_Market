@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.util.ValueStack;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -125,19 +126,27 @@ public class Registration extends ActionSupport implements SessionAware {
                 return Action.ERROR;
             }
 
+            System.out.println("Fields are correct (id = 1)");
+
             if (UserDao.getUserByLogin(this.login) != null)
             {
                 setMessageOnJSP("errorMessageForCostumer","User with this login already exists.");
                 return Action.ERROR;
             }
 
+            System.out.println("User is uniq (id = 2)");
+
             User user = new User();
             Customer customer = new Customer();
+
+            System.out.println("User is created (id = 3)");
 
             user.setLogin(this.login);
             user.setPassword(this.password);
             user.setRole(RoleDao.getRoleByName("Customer"));
             UserDao.addOrUpdateUser(user);
+
+            System.out.println("User is in DB (id = 4");
 
             customer.setFirstname(this.firstname);
             customer.setLastname(this.lastname);
@@ -145,17 +154,26 @@ public class Registration extends ActionSupport implements SessionAware {
             customer.setUser(UserDao.getUserByLogin(this.login));
             CustomerDao.addOrUpdateCustomer(customer);
 
+
+            System.out.println("Costumer is in DB (id = 5");
+
             //auto-login after registration new account
             session.put("id", customer.getUser().getId());
             session.put("login", user.getLogin());
             session.put("role", user.getRole().getName());
 
+            System.out.println("Session is done (id = 6");
+
             return Action.SUCCESS;
         }
         catch (Exception excep)
         {
-            setMessageOnJSP("errorMessageForCostumer","Something go wrong... Please, try one more time.");
-            return Action.SUCCESS;
+            System.out.println("Exception! (id = 7");
+
+            arrayListOfErrorMessagesForCostumer.add("Something go wrong... Please, try one more time.");
+            setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
+           // setMessageOnJSP("errorMessageForCostumer","Something go wrong... Please, try one more time.");
+            return Action.ERROR;
         }
     }
 
@@ -239,7 +257,6 @@ public class Registration extends ActionSupport implements SessionAware {
         Matcher m = loginPattern.matcher(login);
         if (!m.matches())
         {
-            errorMessageForCostumer += "The login is invalid\n";
             arrayListOfErrorMessagesForCostumer.add("The login is invalid.");
             correctness = false;
         }
@@ -249,7 +266,6 @@ public class Registration extends ActionSupport implements SessionAware {
         m = passwordPattern.matcher(password);
         if (!m.matches())
         {
-            errorMessageForCostumer += "The password is invalid";
             arrayListOfErrorMessagesForCostumer.add("The password is invalid.");
             correctness = false;
         }
