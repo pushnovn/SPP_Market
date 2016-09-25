@@ -229,8 +229,8 @@
     function showDeleteModal(instance)
     {
         var id = $(instance).attr('id_instance');
-        $('#warehouses_delete_id').val(id);
-        $('.warehouses_delete_modal').modal();
+        $('#markets_delete_id').val(id);
+        $('.markets_delete_modal').modal();
     }
 </script>
 

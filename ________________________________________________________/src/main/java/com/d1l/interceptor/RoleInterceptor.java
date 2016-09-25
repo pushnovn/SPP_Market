@@ -1,5 +1,6 @@
 package com.d1l.interceptor;
 
+import com.d1l.dao.RoleDao;
 import com.d1l.dao.UserDao;
 import com.d1l.model.Role;
 import com.opensymphony.xwork2.ActionInvocation;
@@ -57,9 +58,7 @@ public class RoleInterceptor extends AbstractInterceptor {
 
         if (session.getAttribute("login")!=null) {
             String login = (String) session.getAttribute("login");
-
-            Role userRole = UserDao.getUserByLogin(login).getRole();
-            session.setAttribute("role", userRole.getName());
+            session.setAttribute("role", (UserDao.getUserByLogin(login) != null) ? UserDao.getUserByLogin(login).getRole().getName() : null);
         }
 
         if(session != null){
@@ -89,8 +88,8 @@ public class RoleInterceptor extends AbstractInterceptor {
     }
 
     public String handleRejection(ActionInvocation invocation,
-                                     HttpServletResponse response) throws Exception {
-       // response.sendRedirect("/");
+                                  HttpServletResponse response) throws Exception {
+        // response.sendRedirect("/");
         return "invalidAdminAccess";
     }
 

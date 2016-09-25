@@ -14,25 +14,24 @@ import java.util.Map;
 public class ItemsController extends ActionSupport {
 
     private List<Item> itemsList;
-    private int id;
 
-    private int itemId;
-    private int count;
+    private String itemId;
+    private String count;
 
-    public int getItemId() {
-        return itemId;
-    }
-
-    public void setItemId(int itemId) {
+    public void setItemId(String itemId) {
         this.itemId = itemId;
     }
 
-    public int getCount() {
-        return count;
+    public void setCount(String count) {
+        this.count = count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
+    public String getItemId() {
+        return itemId;
+    }
+
+    public String getCount() {
+        return count;
     }
 
     @Override
@@ -43,6 +42,10 @@ public class ItemsController extends ActionSupport {
 
     public String addItemForOrder() throws Exception {
         Map session = ActionContext.getContext().getSession();
+        try {
+            if (ItemDao.getItemById(Integer.parseInt(itemId)) == null) return Action.SUCCESS;
+            Integer.parseInt(count);
+        } catch (Exception ex) {return  Action.SUCCESS;}
 
         List<ItemInfoForOrder> items;
 
@@ -53,8 +56,8 @@ public class ItemsController extends ActionSupport {
         }
 
         ItemInfoForOrder itemInfo = new ItemInfoForOrder();
-        itemInfo.setItemId(itemId);
-        itemInfo.setCount(count);
+        itemInfo.setItemId(Integer.parseInt(itemId));
+        itemInfo.setCount(Integer.parseInt(count));
         items.add(itemInfo);
         session.put("itemsForOrder", items);
 
@@ -69,11 +72,4 @@ public class ItemsController extends ActionSupport {
         this.itemsList = itemsList;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

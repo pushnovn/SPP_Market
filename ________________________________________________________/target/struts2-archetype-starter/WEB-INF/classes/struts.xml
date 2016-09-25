@@ -35,6 +35,16 @@
 
         <default-action-ref name="index"/>
 
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+
+
+
+
+
         <action name="main" class="com.d1l.controller.MainController">
             <result name="success">/main/index.jsp</result>
         </action>
@@ -261,7 +271,6 @@
 
 
     </package>
-
 
 
 </struts>

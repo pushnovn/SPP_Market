@@ -71,8 +71,8 @@ public class MakeOrderController extends ActionSupport {
             orderItem.setCount(itemInfo.getCount());
             orderItem.setItemId(itemInfo.getItemId());
             Item d = ItemDao.getItemById(itemInfo.getItemId());
-            int c = d.getCountInMarket();
-            d.setCountInMarket(c > 0 ? c-- : c);
+            if (d.getCountInMarket() - itemInfo.getCount() < 0) continue;
+            d.setCountInMarket(d.getCountInMarket() - itemInfo.getCount());
             ItemDao.addOrUpdateItem(d);
             OrderItemDao.addOrUpdateOrderItem(orderItem);
         }

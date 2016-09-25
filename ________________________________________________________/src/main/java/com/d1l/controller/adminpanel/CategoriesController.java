@@ -33,8 +33,7 @@ public class CategoriesController extends ActionSupport {
     }
 
     public String add() {
-        if (!validate(getCategory()))
-            return Action.SUCCESS;
+        if (!validate(getCategory())) return Action.SUCCESS;
         CategoryDao.addOrUpdateCategory(getCategory());
         return Action.SUCCESS;
     }

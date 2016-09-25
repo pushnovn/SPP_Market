@@ -8,11 +8,13 @@
             <property name="hibernate.connection.driver_class">
                 com.mysql.jdbc.Driver
             </property>
+            <!--jdbc:mysql://localhost:3306/marketservice-->
+            <!--jdbc:mysql://mysql38961-mysqlspp-pushnov.mycloud.by:3306/marketservice-->
             <property name="hibernate.connection.url">
                 jdbc:mysql://localhost:3306/marketservice
             </property>
             <property name="hibernate.connection.username">root</property>
-            <property name="hibernate.connection.password"></property>
+            <property name="hibernate.connection.password"></property> <!--mgTpchSw15-->
             <property name="hibernate.connection.pool_size">10</property>
             <property name="show_sql">true</property>
             <property name="dialect">

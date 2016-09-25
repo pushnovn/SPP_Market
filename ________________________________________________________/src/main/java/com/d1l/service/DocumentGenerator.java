@@ -25,14 +25,8 @@ public class DocumentGenerator {
     private static final Font FONT_FOR_OBJECT_NAME = FontFactory.getFont(FontFactory.HELVETICA, 20,
             Font.BOLD);
     private static final Font COMMON_FONT = FontFactory.getFont(FontFactory.HELVETICA, 20);
-    private static final String[] VISIT_HEADER = {"Visit Number", "Complaints", "Diagnosys"};
-    private static final String[] ORDER_HEADER = {"Doctor", "Begin Time"};
-    private static final String[] TREATMENTS_HEADER = {"Treatment Number", "Prescription", "Cure", "Cure Count",
-                                                        "Using Method"};
-    private static final String[] ANALYSE_HEADER = {"Analyse Number", "Name", "Result"};
-    private static final String[] EMPTY_ARRAY = {""};
 
-    private static void addWaterMark(PdfWriter writer) {
+    public static void addWaterMark(PdfWriter writer) {
         Phrase watermark = new Phrase("Autoparts", FontFactory.getFont(FontFactory.HELVETICA, 40,
                 Font.BOLD, Color.LIGHT_GRAY));
         Rectangle pageSize = writer.getPageSize();
@@ -42,7 +36,7 @@ public class DocumentGenerator {
         ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, watermark, x, y, 45);
     }
 
-    private static List<String> setOrdersRow(Order order ){
+    public static List<String> setOrdersRow(Order order ){
         List<String> ordersRow = new LinkedList<String>();
         List<OrderItem> orderItems = OrderItemDao.getOrderItemsByOrderId(order.getId());
         Customer customer = order.getCustomer();
@@ -52,16 +46,16 @@ public class DocumentGenerator {
 
         ordersRow.add(String.format("%s", order.getDate()));
 
-        List<ItemReport> details = new ArrayList<ItemReport>();
+        List<ItemReport> Items = new ArrayList<ItemReport>();
         for (OrderItem od : orderItems) {
             Item i = ItemDao.getItemById(od.getItemId());
             ItemReport report = new ItemReport();
             report.setCount(od.getCount());
             report.setItem(i);
-            details.add(report);
+            Items.add(report);
         }
 
-        for (ItemReport d : details) {
+        for (ItemReport d : Items) {
             ordersRow.add(String.format("count: %s; name: %s, %s$ by %s; category: %s ; market: %s, %s;", d.getCount(),
                     d.getItem().getName(), d.getItem().getPrice(),
                     d.getItem().getSupplier().getCompanyName(), d.getItem().getCategory().getName(),
@@ -79,6 +73,7 @@ public class DocumentGenerator {
         PdfWriter pdfWriter = null;
         try {
             pdfWriter = PdfWriter.getInstance(document, stream);
+            pdfWriter.setEncryption(null, null, PdfWriter.ALLOW_PRINTING, PdfWriter.STANDARD_ENCRYPTION_128);
             document.open();
             addWaterMark(pdfWriter);
             Order order = OrderDao.getOrderById(id);
@@ -99,19 +94,19 @@ public class DocumentGenerator {
             time.add(new Chunk(ordersRow.get(2), COMMON_FONT));
             document.add(time);
             document.add(Chunk.NEWLINE);
-            Paragraph details = new Paragraph();
-            details.add(new Chunk("Items: ", FONT_FOR_OBJECT_NAME));
-            document.add(details);
+            Paragraph Items = new Paragraph();
+            Items.add(new Chunk("Items: ", FONT_FOR_OBJECT_NAME));
+            document.add(Items);
             document.add(Chunk.NEWLINE);
             for (int i = 3; i < ordersRow.size(); i++) {
-                Paragraph detail = new Paragraph();
-                detail.add(new Chunk("Item #" + (i - 2) + ": ", FONT_FOR_OBJECT_NAME));
-                detail.add(new Chunk(ordersRow.get(i), COMMON_FONT));
-                document.add(detail);
+                Paragraph Item = new Paragraph();
+                Item.add(new Chunk("Item #" + (i - 2) + ": ", FONT_FOR_OBJECT_NAME));
+                Item.add(new Chunk(ordersRow.get(i), COMMON_FONT));
+                document.add(Item);
                 document.add(Chunk.NEWLINE);
             }
 
-            document.addAuthor("Autoparts Systems");
+            document.addAuthor("Market Service Systems");
         } catch (DocumentException e) {
             e.printStackTrace();
         } finally {
@@ -213,7 +208,7 @@ public class DocumentGenerator {
         return stream;
     }
 
-    private static List<String> setMarketsRow(Market market) {
+    public static List<String> setMarketsRow(Market market) {
         List<String> marketsRow = new LinkedList<String>();
         marketsRow.add(String.format("%d", market.getId()));
 
@@ -231,6 +226,7 @@ public class DocumentGenerator {
         PdfWriter pdfWriter = null;
         try {
             pdfWriter = PdfWriter.getInstance(document, stream);
+            pdfWriter.setEncryption(null, null, PdfWriter.ALLOW_PRINTING, PdfWriter.STANDARD_ENCRYPTION_128);
             document.open();
             addWaterMark(pdfWriter);
             Market market = MarketDao.getMarketById(id);
@@ -338,7 +334,7 @@ public class DocumentGenerator {
         return stream;
     }
 
-    private static List<String> setCategoriesRow(Category category) {
+    public static List<String> setCategoriesRow(Category category) {
         List<String> categoriesRow = new LinkedList<String>();
         categoriesRow.add(String.format("%d", category.getId()));
 
@@ -354,6 +350,7 @@ public class DocumentGenerator {
         PdfWriter pdfWriter = null;
         try {
             pdfWriter = PdfWriter.getInstance(document, stream);
+            pdfWriter.setEncryption(null, null, PdfWriter.ALLOW_PRINTING, PdfWriter.STANDARD_ENCRYPTION_128);
             document.open();
             addWaterMark(pdfWriter);
             Category category = CategoryDao.getCategoryById(id);
@@ -453,5 +450,304 @@ public class DocumentGenerator {
         return stream;
     }
 
+    public static List<String> setItemsRow(Item item) {
+        List<String> ItemsRow = new LinkedList<String>();
+        ItemsRow.add(String.format("%d", item.getId()));
+
+        ItemsRow.add(String.format("%s ", item.getName()));
+
+        ItemsRow.add(String.format("%s ", item.getSupplier().getCompanyName()));
+
+        ItemsRow.add(String.format("%s ", item.getCategory().getName()));
+
+        ItemsRow.add(String.format("%s ", item.getMarket().getName()));
+
+        ItemsRow.add(String.format("%s ", item.getMarket().getAddress()));
+
+        ItemsRow.add(String.format("%s ", item.getPrice()));
+
+        return ItemsRow;
+    }
+
+
+    public static ByteArrayOutputStream generateItemsInPDFById(int id) {
+        Document document = new Document(PageSize.A6, 30, 20, 20, 30);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        PdfWriter pdfWriter = null;
+        try {
+            pdfWriter = PdfWriter.getInstance(document, stream);
+            pdfWriter.setEncryption(null, null, PdfWriter.ALLOW_PRINTING, PdfWriter.STANDARD_ENCRYPTION_128);
+            document.open();
+            addWaterMark(pdfWriter);
+            Item Item = ItemDao.getItemById(id);
+            List<String> ItemsRow = setItemsRow(Item);
+
+            Paragraph ItemNumber = new Paragraph();
+            ItemNumber.add(new Chunk("Item #", FONT_FOR_OBJECT_NAME));
+            ItemNumber.add(new Chunk(ItemsRow.get(0), COMMON_FONT));
+            ItemNumber.setAlignment(Element.ALIGN_CENTER);
+            document.add(ItemNumber);
+            document.add(Chunk.NEWLINE);
+
+            Paragraph name = new Paragraph();
+            name.add(new Chunk("Name: ", FONT_FOR_OBJECT_NAME));
+            name.add(new Chunk(ItemsRow.get(1), COMMON_FONT));
+            document.add(name);
+            document.add(Chunk.NEWLINE);
+
+            Paragraph supplierName = new Paragraph();
+            supplierName.add(new Chunk("Supplier name: ", FONT_FOR_OBJECT_NAME));
+            supplierName.add(new Chunk(ItemsRow.get(2), COMMON_FONT));
+            document.add(supplierName);
+            document.add(Chunk.NEWLINE);
+
+            Paragraph categoryName = new Paragraph();
+            categoryName.add(new Chunk("Category name: ", FONT_FOR_OBJECT_NAME));
+            categoryName.add(new Chunk(ItemsRow.get(3), COMMON_FONT));
+            document.add(categoryName);
+            document.add(Chunk.NEWLINE);
+
+            Paragraph marketName = new Paragraph();
+            marketName.add(new Chunk("Market name: ", FONT_FOR_OBJECT_NAME));
+            marketName.add(new Chunk(ItemsRow.get(4), COMMON_FONT));
+            document.add(marketName);
+            document.add(Chunk.NEWLINE);
+
+            Paragraph marketAddress = new Paragraph();
+            marketAddress.add(new Chunk("Market address: ", FONT_FOR_OBJECT_NAME));
+            marketAddress.add(new Chunk(ItemsRow.get(5), COMMON_FONT));
+            document.add(marketAddress);
+            document.add(Chunk.NEWLINE);
+
+            Paragraph price = new Paragraph();
+            price.add(new Chunk("Price: ", FONT_FOR_OBJECT_NAME));
+            price.add(new Chunk(ItemsRow.get(6), COMMON_FONT));
+            document.add(price);
+            document.add(Chunk.NEWLINE);
+
+            document.addAuthor("Market Service Systems");
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } finally {
+            if (document != null) {
+                document.close();
+            }
+            if (pdfWriter != null) {
+                document.close();
+            }
+        }
+        return stream;
+    }
+
+    public static ByteArrayOutputStream generateItemsInXLS() throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("Item");
+
+        HSSFCellStyle style = workbook.createCellStyle();
+        HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+
+        HSSFFont boldFont = workbook.createFont();
+
+        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        headerCellStyle.setFont(boldFont);
+
+        HSSFRow row = sheet.createRow(0);
+        HSSFCell cell = row.createCell(0);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Item Number"));
+        cell = row.createCell(1);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Name"));
+        cell = row.createCell(2);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Supplier name"));
+        cell = row.createCell(3);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Category name"));
+        cell = row.createCell(4);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Market name"));
+        cell = row.createCell(5);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Market address"));
+        cell = row.createCell(6);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Price"));
+        sheet.autoSizeColumn(0);
+        style.setWrapText(true);
+        headerCellStyle.setWrapText(true);
+        int[] columnWidths = {17, 10, 10, 20, 20};
+        for (int i = 0; i < columnWidths.length; i++) {
+            columnWidths[i] = columnWidths[i] * 256;
+        }
+        List<Item> ItemList = ItemDao.getItemsList();
+        for (int i = 0; i < ItemList.size(); i++ ) {
+            row = sheet.createRow(i+1);
+            row.setRowStyle(style);
+            List<String> ItemsRow = setItemsRow(ItemList.get(i));
+            for (int j = 0; j < ItemsRow.size(); j++) {
+                cell = row.createCell(j);
+                cell.setCellStyle(style);
+                HSSFRichTextString ItemNumberCellValue = new HSSFRichTextString(ItemsRow.get(j));
+
+                cell.setCellValue(ItemNumberCellValue);
+                sheet.autoSizeColumn(j);
+
+                //sheet.setColumnWidth(j, columnWidths[j]);
+
+            }
+
+        }
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        workbook.write(stream);
+        return  stream;
+    }
+
+    public static ByteArrayOutputStream generateItemsInCSV() throws IOException {
+        String[] fileHeader = {"Item Number", "Name", "Supplier name", "Category name", "Market name", "Market year", "Price"};
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        writer.writeNext(fileHeader);
+        List<String[]> ItemsInString = new LinkedList<String[]>();
+        List<Item> ItemsList = ItemDao.getItemsList();
+        for (int i = 0; i < ItemsList.size(); i++) {
+            List<String> ItemsRow = setItemsRow(ItemsList.get(i));
+            String[] tempArray = {ItemsRow.get(0), ItemsRow.get(1), ItemsRow.get(2), ItemsRow.get(3),
+                    ItemsRow.get(4), ItemsRow.get(5), ItemsRow.get(6)};
+            ItemsInString.add(tempArray);
+        }
+
+        writer.writeAll(ItemsInString);
+        writer.close();
+        return stream;
+    }
+
+    public static List<String> setUsersRow(User user) {
+        List<String> usersRow = new LinkedList<String>();
+        usersRow.add(String.format("%d", user.getId()));
+
+        usersRow.add(String.format("%s ", user.getLogin()));
+
+        usersRow.add(String.format("%s ", user.getRole().getName()));
+
+        return usersRow;
+    }
+
+    public static ByteArrayOutputStream generateUsersInPDFById(int id) {
+        Document document = new Document(PageSize.A6, 30, 20, 20, 30);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        PdfWriter pdfWriter = null;
+        try {
+            pdfWriter = PdfWriter.getInstance(document, stream);
+            pdfWriter.setEncryption(null, null, PdfWriter.ALLOW_PRINTING, PdfWriter.STANDARD_ENCRYPTION_128);
+            document.open();
+            addWaterMark(pdfWriter);
+            User user = UserDao.getUserById(id);
+            List<String> usersRow = setUsersRow(user);
+
+            Paragraph userNumber = new Paragraph();
+            userNumber.add(new Chunk("User #", FONT_FOR_OBJECT_NAME));
+            userNumber.add(new Chunk(usersRow.get(0), COMMON_FONT));
+            userNumber.setAlignment(Element.ALIGN_CENTER);
+            document.add(userNumber);
+            document.add(Chunk.NEWLINE);
+            Paragraph name = new Paragraph();
+            name.add(new Chunk("Login: ", FONT_FOR_OBJECT_NAME));
+            name.add(new Chunk(usersRow.get(1), COMMON_FONT));
+            document.add(name);
+            document.add(Chunk.NEWLINE);
+            Paragraph role = new Paragraph();
+            role.add(new Chunk("Role: ", FONT_FOR_OBJECT_NAME));
+            role.add(new Chunk(usersRow.get(2), COMMON_FONT));
+            document.add(role);
+            document.add(Chunk.NEWLINE);
+            document.addAuthor("Market Service Systems");
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } finally {
+            if (document != null) {
+                document.close();
+            }
+            if (pdfWriter != null) {
+                document.close();
+            }
+        }
+        return stream;
+    }
+
+    public static ByteArrayOutputStream generateUsersInXLS() throws IOException {
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("user");
+
+        HSSFCellStyle style = workbook.createCellStyle();
+        HSSFCellStyle headerCellStyle = workbook.createCellStyle();
+
+        HSSFFont boldFont = workbook.createFont();
+
+        boldFont.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
+        headerCellStyle.setFont(boldFont);
+
+        HSSFRow row = sheet.createRow(0);
+        HSSFCell cell = row.createCell(0);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("User Number"));
+        cell = row.createCell(1);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Login"));
+        cell = row.createCell(2);
+        cell.setCellStyle(headerCellStyle);
+        cell.setCellValue(new HSSFRichTextString("Role"));
+        sheet.autoSizeColumn(0);
+        style.setWrapText(true);
+        headerCellStyle.setWrapText(true);
+        int[] columnWidths = {17, 10, 10, 20, 20};
+        for (int i = 0; i < columnWidths.length; i++) {
+            columnWidths[i] = columnWidths[i] * 256;
+        }
+        List<User> userList = UserDao.getUsersList();
+        for (int i = 0; i < userList.size(); i++ ) {
+            row = sheet.createRow(i+1);
+            row.setRowStyle(style);
+            List<String> usersRow = setUsersRow(userList.get(i));
+            for (int j = 0; j < usersRow.size(); j ++) {
+                cell = row.createCell(j);
+                cell.setCellStyle(style);
+                HSSFRichTextString userNumberCellValue = new HSSFRichTextString(usersRow.get(j));
+
+                cell.setCellValue(userNumberCellValue);
+                sheet.autoSizeColumn(j);
+
+                sheet.setColumnWidth(j, columnWidths[j]);
+
+            }
+
+        }
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        workbook.write(stream);
+        return  stream;
+    }
+
+    public static ByteArrayOutputStream generateUsersInCSV() throws IOException {
+        String[] fileHeader = {"User Number", "Login", "Role"};
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+        CSVWriter writer = new CSVWriter(new OutputStreamWriter(stream, Charset.forName("UTF-8")), ',');
+        writer.writeNext(fileHeader);
+        List<String[]> usersInString = new LinkedList<String[]>();
+        List<User> userList = UserDao.getUsersList();
+        for (int i = 0; i < userList.size(); i++) {
+            List<String> usersRow = setUsersRow(userList.get(i));
+            String[] tempArray = {usersRow.get(0), usersRow.get(1), usersRow.get(2)};
+            usersInString.add(tempArray);
+        }
+
+        writer.writeAll(usersInString);
+        writer.close();
+        return stream;
+    }
 
 }
+

@@ -1,4 +1,4 @@
-<div class="modal arkets_edit_modal fade" tabindex="-1" role="dialog">
+<div class="modal markets_edit_modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">.
             <form method="post" action="adminpanel-markets-update.action">

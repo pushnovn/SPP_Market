@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3661587242">
+  <component name="DataSourceManagerImpl" format="xml" hash="2464834842">
     <data-source source="LOCAL" name="MySQL - marketservice@localhost" uuid="d68f6141-be54-4fa3-8027-a3193b02c4d9">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -12,6 +12,18 @@
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>
       <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml" uuid="3068e04c-304c-43bd-8637-c5ae9814fcf4">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mysql38961-mysqlspp-pushnov.mycloud.by:3306/marketservice</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>dfc7dfcddffedfdadfc9dfc2dff9dfdddf9bdf9f</user-password>
+      <libraries>
+        <library>
+          <url>file://C:\Users\pushn_000\.m2\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

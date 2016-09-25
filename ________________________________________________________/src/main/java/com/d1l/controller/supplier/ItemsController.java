@@ -47,7 +47,7 @@ public class ItemsController extends ActionSupport {
     }
 
     public String update() {
-        if (!validate(getItem())) return Action.SUCCESS;
+        if (!validate(getItem())) return Action.ERROR;
         ItemDao.addOrUpdateItem(getItem());
         return Action.SUCCESS;
     }
@@ -58,7 +58,7 @@ public class ItemsController extends ActionSupport {
     }
 
     public String add() {
-        if (!validate(getItem())) return Action.SUCCESS;
+        if (!validate(getItem())) return Action.ERROR;
         getItem().setCategory(CategoryDao.getCategoryById(getItem().getCategory().getId()));
         getItem().setMarket(MarketDao.getMarketById(getItem().getMarket().getId()));
         Map session = ActionContext.getContext().getSession();

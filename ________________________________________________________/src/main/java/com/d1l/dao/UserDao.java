@@ -64,7 +64,8 @@ public class UserDao {
         return user;
     }
 
-    public static User getUserByLogin(String login) {
+    public static User getUserByLogin(String login)
+    {
         Session session = HibernateUtil.makeSession();
         session.beginTransaction();
         User user = null;

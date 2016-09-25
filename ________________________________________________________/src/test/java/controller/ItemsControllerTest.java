@@ -15,9 +15,8 @@ public class ItemsControllerTest {
     public void setUp() throws Exception {
 
         controller = new ItemsController();
-        controller.setItemId(2);
-        controller.setId(1);
-        controller.setCount(2);
+        controller.setItemId("2");
+        controller.setCount("2");
     }
 
     @After
