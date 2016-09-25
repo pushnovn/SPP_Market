@@ -8,7 +8,7 @@ import com.d1l.dao.UserDao;
 import com.d1l.model.Customer;
 import com.d1l.model.Supplier;
 import com.d1l.model.User;
-import com.d1l.util.HashService;
+import com.d1l.util.CryptService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -27,20 +27,6 @@ import java.util.HashMap;
 
 public class Registration extends ActionSupport implements SessionAware
 {
-
-
-//    private String login;
-//    private String password;
-//    private String firstname;
-//    private String middlename;
-//    private String lastname;
-//    private String companyName;
-    private String errorMessageForAllTypesOfUsers = "errorMessageForAllTypesOfUsers";
-    private String errorMessageForCostumer;
-    private ArrayList<String> arrayListOfErrorMessagesForCostumer = new ArrayList<String>();
-    private ArrayList<String> arrayListOfErrorMessagesForSupplier = new ArrayList<String>();
-
-
     private String login;
     private String password;
     private String repeatpass;
@@ -49,13 +35,11 @@ public class Registration extends ActionSupport implements SessionAware
     private String lastname;
     private String companyName;
     private String message;
+ // private String errorMessageForAllTypesOfUsers = "errorMessageForAllTypesOfUsers";
+ // private String errorMessageForCostumer;
+    private ArrayList<String> arrayListOfErrorMessagesForCostumer = new ArrayList<String>();
+    private ArrayList<String> arrayListOfErrorMessagesForSupplier = new ArrayList<String>();
 
-    public String getRepeatpass() {
-        return repeatpass;
-    }
-    public void setRepeatpass(String repeatpass) {
-        this.repeatpass = repeatpass;
-    }
     public SessionMap<String, Object> getSession() {
         return session;
     }
@@ -68,42 +52,56 @@ public class Registration extends ActionSupport implements SessionAware
     public void setLogin(String login) {
         this.login = login;
     }
+
     public String getPassword() {
         return password;
     }
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRepeatpass() {
+        return repeatpass;
+    }
+    public void setRepeatpass(String repeatpass) {
+        this.repeatpass = repeatpass;
+    }
+
     public String getFirstname() {
         return firstname;
     }
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
+
     public String getMiddlename() {
         return middlename;
     }
     public void setMiddlename(String middlename) {
         this.middlename = middlename;
     }
+
     public String getLastname() {
         return lastname;
     }
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
     public String getCompanyName() {
         return companyName;
     }
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
+
     public String getMessage() {
         return message;
     }
     public void setMessage(String message) {
         this.message = message;
     }
+
     private SessionMap<String, Object> session;
     public void setSession(Map<String, Object> map) {
         this.session = (SessionMap<String, Object>) map;
@@ -112,7 +110,6 @@ public class Registration extends ActionSupport implements SessionAware
     public String execute() throws Exception {
         return Action.SUCCESS;
     }
-
 
 //    public String getLogin() {
 //        return login;
@@ -181,7 +178,6 @@ public class Registration extends ActionSupport implements SessionAware
 //        return Action.SUCCESS;
 //    }
 
-
     private String name;
     public String getName() {
         return name;
@@ -189,8 +185,6 @@ public class Registration extends ActionSupport implements SessionAware
     public void setName(String name) {
         this.name = name;
     }
-
-
 
 //    public String singupAsCustomer() throws  Exception {
 //
@@ -225,12 +219,16 @@ public class Registration extends ActionSupport implements SessionAware
 //    }
 
 
+
+
+    // КЛИЕНТ
     public String singupAsCustomer() throws  Exception
     {
         try
         {
+            // TODO: Поубирать выводы сообщений в лог
             if (!validateCustomer(
-                    getLogin(), getPassword(), getFirstname(),getLastname(), getMiddlename()
+                    getLogin(), getPassword(), getRepeatpass(), getFirstname(),getLastname(), getMiddlename()
                 ))
             {
                 setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
@@ -241,7 +239,8 @@ public class Registration extends ActionSupport implements SessionAware
 
             if (UserDao.getUserByLogin(this.login) != null)
             {
-                setMessageOnJSP("errorMessageForCostumer","User with this login already exists.");
+                arrayListOfErrorMessagesForCostumer.add("User with this login already exists.");
+                setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
                 return Action.ERROR;
             }
 
@@ -253,7 +252,7 @@ public class Registration extends ActionSupport implements SessionAware
             System.out.println("User is created (id = 3)");
 
             user.setLogin(this.login);
-            user.setPassword(this.password);
+            user.setPassword(new CryptService().Encrypt(this.password));
             user.setRole(RoleDao.getRoleByName("Customer"));
             UserDao.addOrUpdateUser(user);
 
@@ -283,19 +282,68 @@ public class Registration extends ActionSupport implements SessionAware
 
             arrayListOfErrorMessagesForCostumer.add("Something go wrong... Please, try one more time.");
             setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
-           // setMessageOnJSP("errorMessageForCostumer","Something go wrong... Please, try one more time.");
             return Action.ERROR;
         }
     }
 
-    private void setMessageOnJSP(String key, Object value)
+    private boolean validateCustomer(String login, String password, String repeatpass, String firstname,
+                                     String lastname, String middlename)
     {
-        ValueStack stack = ActionContext.getContext().getValueStack();
-        Map<String, Object> context = new HashMap<String, Object>();
+        boolean correctness = true;
 
-        context.put(key, value);
-        stack.push(context);
+        Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
+        Matcher m = loginPattern.matcher(login);
+        if (!m.matches())
+        {
+            arrayListOfErrorMessagesForCostumer.add("The login is invalid.");
+            correctness = false;
+        }
+
+
+        Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
+        m = passwordPattern.matcher(password);
+        if (!m.matches())
+        {
+            arrayListOfErrorMessagesForCostumer.add("The password is invalid.");
+            correctness = false;
+        }
+        m = passwordPattern.matcher(repeatpass);
+        if (!m.matches())
+        {
+            arrayListOfErrorMessagesForCostumer.add("The repeat of your password is invalid.");
+            correctness = false;
+        }
+        if (!password.equals(repeatpass))
+        {
+            arrayListOfErrorMessagesForCostumer.add("The passwords do not match.");
+            correctness = false;
+        }
+
+
+        Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,60}$");
+
+        m = namePattern.matcher(firstname);
+        if (!m.matches())
+        {
+            arrayListOfErrorMessagesForCostumer.add("The firstname is invalid.");
+            correctness = false;
+        }
+        m = namePattern.matcher(lastname);
+        if (!m.matches())
+        {
+            arrayListOfErrorMessagesForCostumer.add("The lastname is invalid.");
+            correctness = false;
+        }
+        m = namePattern.matcher(middlename);
+        if (!m.matches())
+        {
+            arrayListOfErrorMessagesForCostumer.add("The middlename is invalid.");
+            correctness = false;
+        }
+
+        return correctness;
     }
+
 
 
 //    public String singupAsSupplier() throws  Exception {
@@ -328,10 +376,14 @@ public class Registration extends ActionSupport implements SessionAware
 //    }
 
 
+
+    // ПРОДАВЕЦ
     public String singupAsSupplier() throws  Exception
     {
+        this.login = this.login.toLowerCase();
 
-        if (!validateSupplier(getLogin(), getPassword(), getCompanyName())) return Action.ERROR;
+        if (!validateSupplier(getLogin(), getPassword(), getCompanyName()))
+            return Action.ERROR;
 
         if (UserDao.getUserByLogin(this.login) != null)
         {
@@ -343,7 +395,7 @@ public class Registration extends ActionSupport implements SessionAware
         Supplier supplier = new Supplier();
 
         user.setLogin(this.login);
-        user.setPassword(this.password);
+        user.setPassword(new CryptService().Encrypt(this.password));
         user.setRole(RoleDao.getRoleByName("Supplier"));
         UserDao.addOrUpdateUser(user);
 
@@ -377,6 +429,17 @@ public class Registration extends ActionSupport implements SessionAware
             arrayListOfErrorMessagesForSupplier.add("The password is invalid.");
             correctness = false;
         }
+        m = passwordPattern.matcher(repeatpass);
+        if (!m.matches())
+        {
+            arrayListOfErrorMessagesForSupplier.add("The repeat of your password is invalid.");
+            correctness = false;
+        }
+        if (password != repeatpass)
+        {
+            arrayListOfErrorMessagesForSupplier.add("The passwords do not match.");
+            correctness = false;
+        }
         Pattern companyNamePattern = Pattern.compile("^[A-Za-z0-9-\\s]{1,60}$");
         m = companyNamePattern.matcher(companyName);
         if (!m.matches())
@@ -388,63 +451,17 @@ public class Registration extends ActionSupport implements SessionAware
         return correctness;
     }
 
-    private boolean validateCustomer(String login, String password, String firstname,
-                                     String lastname, String middlename)
+
+
+
+    private void setMessageOnJSP(String key, Object value)
     {
-        boolean correctness = true;
-        errorMessageForCostumer = "";
+        ValueStack stack = ActionContext.getContext().getValueStack();
+        Map<String, Object> context = new HashMap<String, Object>();
 
-        Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
-        Matcher m = loginPattern.matcher(login);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The login is invalid.");
-            correctness = false;
-        }
-
-
-        Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
-        m = passwordPattern.matcher(password);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The password is invalid.");
-            correctness = false;
-        }
-
-
-        Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,60}$");
-
-        m = namePattern.matcher(firstname);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The firstname is invalid.");
-            correctness = false;
-        }
-        m = namePattern.matcher(lastname);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The lastname is invalid.");
-            correctness = false;
-        }
-        m = namePattern.matcher(middlename);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The middlename is invalid.");
-            correctness = false;
-        }
-
-
-        return correctness;
+        context.put(key, value);
+        stack.push(context);
     }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -527,10 +544,5 @@ public class Registration extends ActionSupport implements SessionAware
 //        if (error) return false;
 //        return true;
 //    }
-
-
-
-    
-
 }
 

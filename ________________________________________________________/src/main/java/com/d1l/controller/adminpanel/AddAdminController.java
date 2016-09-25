@@ -3,7 +3,7 @@ package com.d1l.controller.adminpanel;
 import com.d1l.dao.RoleDao;
 import com.d1l.dao.UserDao;
 import com.d1l.model.User;
-import com.d1l.util.HashService;
+import com.d1l.util.CryptService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -27,7 +27,7 @@ public class AddAdminController extends ActionSupport {
         }
         user.setRole(RoleDao.getRoleByName("Admin"));
         try {
-            user.setPassword(HashService.makeSHA1Hash(user.getPassword()));
+            user.setPassword(new CryptService().Decrypt(user.getPassword()));
         } catch (Exception ex) {}
         UserDao.addOrUpdateUser(getUser());
         return Action.SUCCESS;

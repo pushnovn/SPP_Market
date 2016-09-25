@@ -63,8 +63,6 @@
 										&nbsp;
 										<div class="form-group">
                                             <div style="color: red;">
-                                                                        <!--<s:property value="errorMessageForCostumer" />-->
-                                                <s:iterator value="arrayListOfErrorMessagesForCostumer"/>
                                                 <ul>
                                                     <s:iterator value="arrayListOfErrorMessagesForCostumer">
                                                         <li><s:property/></li>

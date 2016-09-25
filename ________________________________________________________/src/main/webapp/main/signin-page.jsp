@@ -33,8 +33,13 @@
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
 							</div>
                             <div style="color: red;">
-                                <s:property value="message"></s:property>
+                                <ul>
+                                    <s:iterator value="arrayListOfErrorMessages">
+                                        <li><s:property/></li>
+                                    </s:iterator>
+                                </ul>
                             </div>
+                            </br>
 							<input class="btn btn-sm btn-primary btn-block" type="submit" value="Login">
 						</fieldset>
 					</form>

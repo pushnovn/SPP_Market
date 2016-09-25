@@ -17,7 +17,9 @@ public class CategoryDao {
             session.beginTransaction();
             session.saveOrUpdate(category);
             session.getTransaction().commit();
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
+            // TODO: Переадресовать на страницу с ошибкой вместо распечатки стектрейса
             e.printStackTrace();
             session.getTransaction().rollback();
         } finally {
@@ -37,6 +39,7 @@ public class CategoryDao {
             }
             session.getTransaction().commit();
         } catch (Exception e){
+            // TODO: Переадресовать на страницу с ошибкой вместо распечатки стектрейса
             e.printStackTrace();
             session.getTransaction().rollback();
         } finally {
@@ -55,6 +58,8 @@ public class CategoryDao {
             category = (Category)criteria.uniqueResult();
             session.getTransaction().commit();
         } catch (HibernateException e) {
+
+            // TODO: Переадресовать на страницу с ошибкой вместо распечатки стектрейса
             e.printStackTrace();
             session.getTransaction().rollback();
         } finally {
@@ -71,7 +76,9 @@ public class CategoryDao {
         try {
             categoriesList = (List<Category>)session.createCriteria(Category.class).list();
             session.getTransaction().commit();
-        } catch (HibernateException e) {
+        } catch (HibernateException e)
+        {
+            // TODO: Переадресовать на страницу с ошибкой вместо распечатки стектрейса
             e.printStackTrace();
             session.getTransaction().rollback();
         } finally {
