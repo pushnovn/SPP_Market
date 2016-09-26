@@ -810,6 +810,7 @@
       <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK4slkgvvh7ecxdf3yhfavyvly4" table="user" schema="" catalog="marketservice" columns="role_id"/>
       <exported-key name="fk_user_role" table="user" schema="" catalog="marketservice" columns="role_id"/>
       <index name="id_UNIQUE" unique="true" columns="id"/>
     </table>
@@ -828,7 +829,9 @@
       <column name="login" sqlType="VARCHAR" length="100" precision="0" nullable="false" jdbcType="12"/>
       <column name="password" sqlType="VARCHAR" length="250" precision="0" nullable="false" jdbcType="12"/>
       <column name="role_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="email" sqlType="TEXT" length="65535" precision="0" nullable="false" jdbcType="-1"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK4slkgvvh7ecxdf3yhfavyvly4" columns="role_id" ref-table="role" ref-schema="" ref-catalog="marketservice" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="fk_user_role" columns="role_id" ref-table="role" ref-schema="" ref-catalog="marketservice" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="fk_customer_user1" table="customer" schema="" catalog="marketservice" columns="user_id"/>
       <exported-key name="fk_supplier_user1" table="supplier" schema="" catalog="marketservice" columns="user_id"/>

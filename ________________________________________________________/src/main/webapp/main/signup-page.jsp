@@ -51,6 +51,9 @@
 										<div class="form-group">
 											<input class="form-control" placeholder="Repeat password" name="repeatpass" type="password">
 										</div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="E-mail" name="email" type="email">
+                                        </div>
 										<div class="form-group">
 											<input class="form-control" placeholder="Firstname" name="firstname" type="text" value="">
 										</div>
@@ -91,16 +94,23 @@
 										<div class="form-group">
 											<input class="form-control" placeholder="Password" name="password" type="password" value="">
 										</div>
-										<div class="form-group">
-											<input class="form-control" placeholder="Repeat password" name="repeatpass" type="password">
-										</div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="Repeat password" name="repeatpass" type="password">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" placeholder="E-mail" name="email" type="email">
+                                        </div>
 										<div class="form-group">
 											<input class="form-control" placeholder="Company name" name="companyName" type="text" value="">
 										</div>
 										&nbsp;
 										<div class="form-group">
                                             <div style="color: red;">
-                                                <s:property value="errorMessageForSupplier"/>
+                                                <ul>
+                                                    <s:iterator value="arrayListOfErrorMessagesForSupplier">
+                                                        <li><s:property/></li>
+                                                    </s:iterator>
+                                                </ul>
                                             </div>
                                             </br>
 											<div class="controls">

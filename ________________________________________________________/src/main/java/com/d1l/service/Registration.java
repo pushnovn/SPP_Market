@@ -29,6 +29,9 @@ public class Registration extends ActionSupport implements SessionAware
 {
     private String login;
     private String password;
+
+
+    private String email;
     private String repeatpass;
     private String firstname;
     private String middlename;
@@ -65,6 +68,13 @@ public class Registration extends ActionSupport implements SessionAware
     }
     public void setRepeatpass(String repeatpass) {
         this.repeatpass = repeatpass;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstname() {
@@ -253,6 +263,7 @@ public class Registration extends ActionSupport implements SessionAware
 
             user.setLogin(this.login);
             user.setPassword(new CryptService().Encrypt(this.password));
+            user.setEmail(this.email);
             user.setRole(RoleDao.getRoleByName("Customer"));
             UserDao.addOrUpdateUser(user);
 
@@ -380,10 +391,13 @@ public class Registration extends ActionSupport implements SessionAware
     // ПРОДАВЕЦ
     public String singupAsSupplier() throws  Exception
     {
-        this.login = this.login.toLowerCase();
+     //   this.login = this.login.toLowerCase();
 
         if (!validateSupplier(getLogin(), getPassword(), getCompanyName()))
+        {
+            setMessageOnJSP("arrayListOfErrorMessagesForSupplier", arrayListOfErrorMessagesForSupplier);
             return Action.ERROR;
+        }
 
         if (UserDao.getUserByLogin(this.login) != null)
         {
@@ -435,7 +449,7 @@ public class Registration extends ActionSupport implements SessionAware
             arrayListOfErrorMessagesForSupplier.add("The repeat of your password is invalid.");
             correctness = false;
         }
-        if (password != repeatpass)
+        if (!password.equals(repeatpass))
         {
             arrayListOfErrorMessagesForSupplier.add("The passwords do not match.");
             correctness = false;

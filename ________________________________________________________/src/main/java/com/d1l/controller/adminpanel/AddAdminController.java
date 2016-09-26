@@ -51,7 +51,8 @@ public class AddAdminController extends ActionSupport {
         this.errorString = errorString;
     }
 
-    private boolean validate(String login, String password) {
+    private boolean validate(String login, String password)
+    {
         Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
         Matcher m = loginPattern.matcher(login);
         if (!m.matches())
@@ -66,6 +67,9 @@ public class AddAdminController extends ActionSupport {
             errorString = "The password is invalid";
             return false;
         }
+
+    //    public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+                Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
         return true;
     }
 }

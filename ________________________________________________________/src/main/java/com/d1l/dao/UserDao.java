@@ -71,7 +71,7 @@ public class UserDao {
         User user = null;
         try {
             Criteria criteria = session.createCriteria(User.class);
-            criteria.add(Restrictions.eq("login", login));
+            criteria.add(Restrictions.ilike("login", login));
             user = (User)criteria.uniqueResult();
             session.getTransaction().commit();
         } catch (HibernateException e) {

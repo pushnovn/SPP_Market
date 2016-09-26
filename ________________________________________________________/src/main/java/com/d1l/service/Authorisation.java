@@ -51,7 +51,7 @@ public class Authorisation extends ActionSupport implements SessionAware
 
     public String login() throws Exception
     {
-        this.login = this.login.toLowerCase();
+        //this.login = this.login.toLowerCase();
         User user = UserDao.getUserByLogin(this.login);
         if (user == null)
         {
@@ -74,6 +74,9 @@ public class Authorisation extends ActionSupport implements SessionAware
             }
         }
     }
+
+//    public void
+//    }
 
     public void setSession(Map<String, Object> map) {
         this.session = (SessionMap<String, Object>) map;

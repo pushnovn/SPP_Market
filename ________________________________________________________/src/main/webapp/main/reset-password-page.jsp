@@ -21,16 +21,13 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Please sign in</h3>
+                    <h3 class="panel-title">Enter your login to receive your password via email</h3>
 				</div>
 				<div class="panel-body">
-					<form accept-charset="UTF-8" action='login.action' method="POST">
+					<form accept-charset="UTF-8" action='' method="POST">
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="Login" name="login" type="text">
-							</div>
-							<div class="form-group">
-								<input class="form-control" placeholder="Password" name="password" type="password" value="">
 							</div>
                             <div style="color: red;">
                                 <ul>
@@ -40,12 +37,9 @@
                                 </ul>
                             </div>
                             </br>
-							<input class="btn btn-sm btn-primary btn-block" type="submit" value="Login">
+							<input class="btn btn-sm btn-primary btn-block" type="submit" value="Get password">
 						</fieldset>
 					</form>
-                    <div>
-                        <a href="reset-password-page.jsp">Forgot your password? Click here.</a>
-                    </div>
 				</div>
 			</div>
 		</div>
