@@ -75,6 +75,43 @@ public class Authorisation extends ActionSupport implements SessionAware
         }
     }
 
+
+    public String sendPasswordToEmail() throws Exception
+    {
+        User user = UserDao.getUserByLogin(this.login);
+        if (user == null)
+        {
+            SetErrorOnThePage("Please, check the username. Such user is not exists.");
+            return Action.ERROR;
+        }
+        else
+        {
+            if (user.getEmail() == null)
+            {
+                SetErrorOnThePage("Email of user "+user.getLogin()+" is absent.");
+                return Action.ERROR;
+            }
+            else
+            {
+                session.put("id", user.getId());
+                session.put("login", user.getLogin());
+                session.put("role", user.getRole().getName());
+                return Action.SUCCESS;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 //    public void
 //    }
 

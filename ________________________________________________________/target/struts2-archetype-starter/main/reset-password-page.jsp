@@ -21,14 +21,13 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-                    <h3 class="panel-title">Enter your email, please</h3>
-                    <h5 class="panel-title">We will send you your password to your email.</h5>
+                    <h3 class="panel-title">Enter your login to receive your password via email</h3>
 				</div>
 				<div class="panel-body">
 					<form accept-charset="UTF-8" action='' method="POST">
 						<fieldset>
 							<div class="form-group">
-								<input class="form-control" placeholder="Yor login, please" name="login" type="text">
+								<input class="form-control" placeholder="Login" name="login" type="text">
 							</div>
                             <div style="color: red;">
                                 <ul>
