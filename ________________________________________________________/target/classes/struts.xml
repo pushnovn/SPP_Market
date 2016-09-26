@@ -96,8 +96,8 @@
         </action>
 
         <action name="sendPasswordToEmail" class="com.d1l.service.Authorisation" method="sendPasswordToEmail">
-            <result name="success" type="chain">/main/reset-password.jsp</result>
-            <result name="error" type="chain">/main/reset-password.jsp</result>
+            <result name="success" type="chain">authorisation</result>
+            <result name="error">reset-password-page.jsp</result>
         </action>
 
 

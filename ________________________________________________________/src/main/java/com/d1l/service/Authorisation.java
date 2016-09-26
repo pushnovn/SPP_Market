@@ -18,6 +18,8 @@ import java.util.Map;
 public class Authorisation extends ActionSupport implements SessionAware
 {
     private ArrayList<String> arrayListOfErrorMessages = new ArrayList<String>();
+    private ArrayList<String> arrayListOfInfoMessages = new ArrayList<String>();
+
 
     private SessionMap<String, Object> session;
 
@@ -102,6 +104,8 @@ public class Authorisation extends ActionSupport implements SessionAware
                     emailToSend
             );
 
+            SetInfoOnThePage("Check your password on email!");
+
             return Action.SUCCESS;
         }
     }
@@ -118,6 +122,12 @@ public class Authorisation extends ActionSupport implements SessionAware
         System.out.println(login + ": " + errorText);
         arrayListOfErrorMessages.add(errorText);
         setMessageOnJSP("arrayListOfErrorMessages", arrayListOfErrorMessages);
+    }
+    private void SetInfoOnThePage (String infoText)
+    {
+        System.out.println(login + ": " + infoText);
+        arrayListOfInfoMessages.add(infoText);
+        setMessageOnJSP("arrayListOfInfoMessages", arrayListOfInfoMessages);
     }
 
     private void setMessageOnJSP(String key, Object value)

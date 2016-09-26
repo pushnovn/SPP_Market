@@ -26,6 +26,14 @@
 				<div class="panel-body">
 					<form accept-charset="UTF-8" action='login.action' method="POST">
 						<fieldset>
+                            <div style="color: green;">
+                                <ul style="list-style-type: none;">
+                                    <s:iterator value="arrayListOfInfoMessages">
+                                        <li><s:property/></li>
+                                    </s:iterator>
+                                </ul>
+                            </div>
+                            </br>
 							<div class="form-group">
 								<input class="form-control" placeholder="Login" name="login" type="text">
 							</div>

@@ -314,7 +314,25 @@
       <file leaf-file-name="struts.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="33" selection-start="3881" selection-end="3888" vertical-scroll-proportion="-6.28" vertical-offset="1509" max-vertical-offset="4998">
+            <state line="99" column="32" selection-start="3958" selection-end="3958" vertical-scroll-proportion="-4.92" vertical-offset="1560" max-vertical-offset="4998">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin-page.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="66" selection-start="1017" selection-end="1048" vertical-scroll-proportion="-5.730769" vertical-offset="344" max-vertical-offset="1224">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reset-password-page.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="33" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.8052257" vertical-offset="307" max-vertical-offset="969">
               <folding />
             </state>
           </provider>
@@ -331,13 +349,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Authorisation.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Authorisation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="33" selection-start="3100" selection-end="3107" vertical-scroll-proportion="0.7225951" vertical-offset="918" max-vertical-offset="1853">
+            <state line="106" column="59" selection-start="3215" selection-end="3215" vertical-scroll-proportion="0.0" vertical-offset="862" max-vertical-offset="2023">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#664#672#0" expanded="true" />
+                <element signature="e#745#753#0" expanded="true" />
                 <element signature="method#login#0;class#Authorisation#0" expanded="false" />
               </folding>
             </state>
@@ -403,13 +422,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/AddAdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/struts.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/EmailUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/SendMail.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/HttpURLConnectionExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/struts.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp" />
       </list>
     </option>
   </component>
@@ -523,6 +542,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SPP_Market" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="________________________________________________________" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1152,12 +1201,12 @@
       <workItem from="1474526877833" duration="4863000" />
       <workItem from="1474577626294" duration="6671000" />
       <workItem from="1474607768889" duration="1146000" />
-      <workItem from="1474610362212" duration="56147000" />
+      <workItem from="1474610362212" duration="57827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86767000" />
+    <option name="totallyTimeSpent" value="88447000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1517,20 +1566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="18" selection-start="1908" selection-end="1908" vertical-scroll-proportion="-17.5" vertical-offset="395" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="83" selection-start="958" selection-end="958" vertical-scroll-proportion="-5.1923075" vertical-offset="307" max-vertical-offset="969">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_101/src.zip!/java/lang/reflect/InvocationTargetException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="0" selection-start="1697" selection-end="1697" vertical-scroll-proportion="0.33182845" vertical-offset="669" max-vertical-offset="1530">
@@ -1685,21 +1720,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="59" selection-start="3215" selection-end="3215" vertical-scroll-proportion="0.0" vertical-offset="862" max-vertical-offset="2023">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#664#672#0" expanded="true" />
+            <element signature="e#745#753#0" expanded="true" />
+            <element signature="method#login#0;class#Authorisation#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="33" selection-start="3881" selection-end="3888" vertical-scroll-proportion="-6.28" vertical-offset="1509" max-vertical-offset="4998">
+        <state line="99" column="32" selection-start="3958" selection-end="3958" vertical-scroll-proportion="-4.92" vertical-offset="1560" max-vertical-offset="4998">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="33" selection-start="3100" selection-end="3107" vertical-scroll-proportion="0.7225951" vertical-offset="918" max-vertical-offset="1853">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#664#672#0" expanded="true" />
-            <element signature="method#login#0;class#Authorisation#0" expanded="false" />
-          </folding>
+        <state line="29" column="66" selection-start="1017" selection-end="1048" vertical-scroll-proportion="-5.730769" vertical-offset="344" max-vertical-offset="1224">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="33" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.8052257" vertical-offset="307" max-vertical-offset="969">
+          <folding />
         </state>
       </provider>
     </entry>
