@@ -24,7 +24,7 @@
                     <h3 class="panel-title">Enter your login to receive your password via email</h3>
 				</div>
 				<div class="panel-body">
-					<form accept-charset="UTF-8" action='' method="POST">
+					<form accept-charset="UTF-8" action='sendPasswordToEmail.action' method="POST">
 						<fieldset>
 							<div class="form-group">
 								<input class="form-control" placeholder="Login" name="login" type="text">

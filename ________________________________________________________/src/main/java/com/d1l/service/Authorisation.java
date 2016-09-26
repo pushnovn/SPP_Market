@@ -3,6 +3,7 @@ package com.d1l.service;
 import com.d1l.dao.UserDao;
 import com.d1l.model.User;
 import com.d1l.util.CryptService;
+import com.d1l.util.HttpURLConnectionExample;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -84,36 +85,29 @@ public class Authorisation extends ActionSupport implements SessionAware
             SetErrorOnThePage("Please, check the username. Such user is not exists.");
             return Action.ERROR;
         }
+        if (user.getEmail() == null || user.getEmail().equals(""))
+        {
+            SetErrorOnThePage("Sorry, such user's email is not exists.");
+            return Action.ERROR;
+        }
         else
         {
-            if (user.getEmail() == null)
-            {
-                SetErrorOnThePage("Email of user "+user.getLogin()+" is absent.");
-                return Action.ERROR;
-            }
-            else
-            {
-                session.put("id", user.getId());
-                session.put("login", user.getLogin());
-                session.put("role", user.getRole().getName());
-                return Action.SUCCESS;
-            }
+            String textToSend = "Hi!\nYour password: " + new CryptService().Decrypt(user.getPassword() + "\nThanks for using our service!");
+            String subjectToSend = "SPP labs: hello, dear " + user.getLogin() + "!";
+            String emailToSend = user.getEmail();
+
+            new HttpURLConnectionExample().sendPost(
+                    textToSend,
+                    subjectToSend,
+                    emailToSend
+            );
+
+            return Action.SUCCESS;
         }
     }
 
 
 
-
-
-
-
-
-
-
-
-
-//    public void
-//    }
 
     public void setSession(Map<String, Object> map) {
         this.session = (SessionMap<String, Object>) map;

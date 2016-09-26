@@ -9,15 +9,21 @@ import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
 
-public class EmailUtil {
+public class EmailUtil
+{
 
-    public static void SenEmail(String emailText)
+    public static void sndeml()
+    {
+        SendEmail("");
+    }
+
+    public static void SendEmail(String emailText)
     {
         // Recipient's email ID needs to be mentioned.
-        String to = "abcd@gmail.com";
+        String to = "pushnovn@gmail.com";
 
         // Sender's email ID needs to be mentioned
-        String from = "web@gmail.com";
+        String from = "test@spp.com";
 
         // Assuming you are sending email from localhost
         String host = "localhost";
