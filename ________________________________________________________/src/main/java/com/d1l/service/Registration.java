@@ -29,17 +29,18 @@ public class Registration extends ActionSupport implements SessionAware
 {
     private String login;
     private String password;
-
-
     private String email;
+
     private String repeatpass;
     private String firstname;
     private String middlename;
     private String lastname;
+
     private String companyName;
+
     private String message;
- // private String errorMessageForAllTypesOfUsers = "errorMessageForAllTypesOfUsers";
- // private String errorMessageForCostumer;
+
+    private String errorMessage = "It happened something bad... Please, try later.";
     private ArrayList<String> arrayListOfErrorMessagesForCostumer = new ArrayList<String>();
     private ArrayList<String> arrayListOfErrorMessagesForSupplier = new ArrayList<String>();
 
@@ -231,14 +232,14 @@ public class Registration extends ActionSupport implements SessionAware
 
 
 
-    // КЛИЕНТ
+    // ++ КЛИЕНТ Customer
     public String singupAsCustomer() throws  Exception
     {
         try
         {
             // TODO: Поубирать выводы сообщений в лог
             if (!validateCustomer(
-                    getLogin(), getPassword(), getRepeatpass(), getFirstname(),getLastname(), getMiddlename()
+                    getLogin(), getPassword(), getRepeatpass(), getEmail(), getFirstname(),getLastname(), getMiddlename()
                 ))
             {
                 setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
@@ -289,184 +290,207 @@ public class Registration extends ActionSupport implements SessionAware
         }
         catch (Exception excep)
         {
-            System.out.println("Exception! (id = 7");
-
-            arrayListOfErrorMessagesForCostumer.add("Something go wrong... Please, try one more time.");
-            setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
+            SetErrorOnThePageForCostumer(errorMessage);
             return Action.ERROR;
         }
     }
+    // -- КЛИЕНТ Customer
 
-    private boolean validateCustomer(String login, String password, String repeatpass, String firstname,
-                                     String lastname, String middlename)
+    // ++ КЛИЕНТ Customer
+    private boolean validateCustomer(String login, String password, String repeatpass,
+                                     String email,
+                                     String firstname, String lastname, String middlename)
     {
-        boolean correctness = true;
+        try
+        {
+            boolean correctness = true;
 
-        Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
-        Matcher m = loginPattern.matcher(login);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The login is invalid.");
-            correctness = false;
-        }
-
-
-        Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
-        m = passwordPattern.matcher(password);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The password is invalid.");
-            correctness = false;
-        }
-        m = passwordPattern.matcher(repeatpass);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The repeat of your password is invalid.");
-            correctness = false;
-        }
-        if (!password.equals(repeatpass))
-        {
-            arrayListOfErrorMessagesForCostumer.add("The passwords do not match.");
-            correctness = false;
-        }
+            Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
+            Matcher m = loginPattern.matcher(login);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The login is invalid.");
+                correctness = false;
+            }
 
 
-        Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,60}$");
+            Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
+            m = passwordPattern.matcher(password);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The password is invalid.");
+                correctness = false;
+            }
+            m = passwordPattern.matcher(repeatpass);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The repeat of your password is invalid.");
+                correctness = false;
+            }
+            if (!password.equals(repeatpass))
+            {
+                arrayListOfErrorMessagesForCostumer.add("The passwords do not match.");
+                correctness = false;
+            }
 
-        m = namePattern.matcher(firstname);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The firstname is invalid.");
-            correctness = false;
-        }
-        m = namePattern.matcher(lastname);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The lastname is invalid.");
-            correctness = false;
-        }
-        m = namePattern.matcher(middlename);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForCostumer.add("The middlename is invalid.");
-            correctness = false;
-        }
+            Pattern emailPattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+            m = emailPattern.matcher(email);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The email is invalid.");
+                correctness = false;
+            }
 
-        return correctness;
+            Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,60}$");
+            m = namePattern.matcher(firstname);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The firstname is invalid.");
+                correctness = false;
+            }
+            m = namePattern.matcher(lastname);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The lastname is invalid.");
+                correctness = false;
+            }
+            m = namePattern.matcher(middlename);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The middlename is invalid.");
+                correctness = false;
+            }
+
+            return correctness;
+        }
+        catch (Exception exp)
+        {
+            arrayListOfErrorMessagesForCostumer.add(errorMessage);
+            return false;
+        }
     }
+    // -- КЛИЕНТ Customer
 
 
 
-//    public String singupAsSupplier() throws  Exception {
-//
-//        if (!validateSupplier(getLogin(), getPassword(), getCompanyName())) return Action.ERROR;
-//
-//        if (UserDao.getUserByLogin(this.login) != null) {
-//            message = "User with this login already exist";
-//            return Action.ERROR;
-//        }
-//
-//        User user = new User();
-//        Supplier supplier = new Supplier();
-//
-//        user.setLogin(this.login);
-//        user.setPassword(HashService.makeSHA1Hash(this.password));
-//        user.setRole(RoleDao.getRoleByName("Supplier"));
-//        UserDao.addOrUpdateUser(user);
-//
-//        supplier.setCompanyName(this.companyName);
-//        supplier.setUser(UserDao.getUserByLogin(this.login));
-//        SupplierDao.addOrUpdateSupplier(supplier);
-//
-//        //auto-login after registration new account
-//        session.put("id", supplier.getUser().getId());
-//        session.put("login", user.getLogin());
-//        session.put("role", user.getRole().getName());
-//
-//        return Action.SUCCESS;
-//    }
 
-
-
-    // ПРОДАВЕЦ
+    // ПРОДАВЕЦ Supplier
     public String singupAsSupplier() throws  Exception
     {
-     //   this.login = this.login.toLowerCase();
+        try {
+            if (!validateSupplier(getLogin(), getPassword(), getRepeatpass(), getEmail(), getCompanyName()))
+            {
+                setMessageOnJSP("arrayListOfErrorMessagesForSupplier", arrayListOfErrorMessagesForSupplier);
+                return Action.ERROR;
+            }
 
-        if (!validateSupplier(getLogin(), getPassword(), getCompanyName()))
+            if (UserDao.getUserByLogin(this.login) != null)
+            {
+                arrayListOfErrorMessagesForSupplier.add("User with this login already exist");
+                return Action.ERROR;
+            }
+
+            User user = new User();
+            Supplier supplier = new Supplier();
+
+            user.setLogin(this.login);
+            user.setPassword(new CryptService().Encrypt(this.password));
+            user.setRole(RoleDao.getRoleByName("Supplier"));
+            UserDao.addOrUpdateUser(user);
+
+            supplier.setCompanyName(this.companyName);
+            supplier.setUser(UserDao.getUserByLogin(this.login));
+            SupplierDao.addOrUpdateSupplier(supplier);
+
+            //auto-login after registration new account
+            session.put("id", supplier.getUser().getId());
+            session.put("login", user.getLogin());
+            session.put("role", user.getRole().getName());
+
+            return Action.SUCCESS;
+        }
+        catch (Exception exp)
         {
-            setMessageOnJSP("arrayListOfErrorMessagesForSupplier", arrayListOfErrorMessagesForSupplier);
+            SetErrorOnThePageForSupplier(errorMessage);
             return Action.ERROR;
         }
-
-        if (UserDao.getUserByLogin(this.login) != null)
-        {
-            arrayListOfErrorMessagesForSupplier.add("User with this login already exist");
-            return Action.ERROR;
-        }
-
-        User user = new User();
-        Supplier supplier = new Supplier();
-
-        user.setLogin(this.login);
-        user.setPassword(new CryptService().Encrypt(this.password));
-        user.setRole(RoleDao.getRoleByName("Supplier"));
-        UserDao.addOrUpdateUser(user);
-
-        supplier.setCompanyName(this.companyName);
-        supplier.setUser(UserDao.getUserByLogin(this.login));
-        SupplierDao.addOrUpdateSupplier(supplier);
-
-        //auto-login after registration new account
-        session.put("id", supplier.getUser().getId());
-        session.put("login", user.getLogin());
-        session.put("role", user.getRole().getName());
-
-        return Action.SUCCESS;
     }
+    // -- ПРОДАВЕЦ Supplier
 
-    private boolean validateSupplier(String login, String password, String companyName)
+    // ++ ПРОДАВЕЦ Supplier
+    private boolean validateSupplier(String login, String password, String repeatpass,
+                                     String email, String companyName)
     {
-        boolean correctness = true;
+        try
+        {
+            boolean correctness = true;
 
-        Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
-        Matcher m = loginPattern.matcher(login);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForSupplier.add("The login is invalid.");
-            correctness = false;
-        }
-        Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
-        m = passwordPattern.matcher(password);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForSupplier.add("The password is invalid.");
-            correctness = false;
-        }
-        m = passwordPattern.matcher(repeatpass);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForSupplier.add("The repeat of your password is invalid.");
-            correctness = false;
-        }
-        if (!password.equals(repeatpass))
-        {
-            arrayListOfErrorMessagesForSupplier.add("The passwords do not match.");
-            correctness = false;
-        }
-        Pattern companyNamePattern = Pattern.compile("^[A-Za-z0-9-\\s]{1,60}$");
-        m = companyNamePattern.matcher(companyName);
-        if (!m.matches())
-        {
-            arrayListOfErrorMessagesForSupplier.add("The company name is invalid.");
-            correctness = false;
-        }
+            Pattern loginPattern = Pattern.compile("^[A-Za-z0-9_-]{1,30}$");
+            Matcher m = loginPattern.matcher(login);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForSupplier.add("The login is invalid.");
+                correctness = false;
+            }
+            Pattern passwordPattern = Pattern.compile("^[A-Za-z0-9@#$%*]{8,60}$");
+            m = passwordPattern.matcher(password);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForSupplier.add("The password is invalid.");
+                correctness = false;
+            }
+            m = passwordPattern.matcher(repeatpass);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForSupplier.add("The repeat of your password is invalid.");
+                correctness = false;
+            }
+            if (!password.equals(repeatpass))
+            {
+                arrayListOfErrorMessagesForSupplier.add("The passwords do not match.");
+                correctness = false;
+            }
 
-        return correctness;
+            Pattern emailPattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+            m = emailPattern.matcher(email);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForCostumer.add("The email is invalid.");
+                correctness = false;
+            }
+
+            Pattern companyNamePattern = Pattern.compile("^[A-Za-z0-9-\\s]{1,60}$");
+            m = companyNamePattern.matcher(companyName);
+            if (!m.matches())
+            {
+                arrayListOfErrorMessagesForSupplier.add("The company name is invalid.");
+                correctness = false;
+            }
+
+            return correctness;}
+
+        catch (Exception exp)
+        {
+            arrayListOfErrorMessagesForSupplier.add(errorMessage);
+            return false;
+        }
     }
+    // -- ПРОДАВЕЦ Supplier
 
 
 
+    private void SetErrorOnThePageForCostumer (String errorText)
+    {
+        System.out.println(login + ": " + errorText);
+        arrayListOfErrorMessagesForCostumer.add(errorText);
+        setMessageOnJSP("arrayListOfErrorMessagesForCostumer", arrayListOfErrorMessagesForCostumer);
+    }
+    private void SetErrorOnThePageForSupplier (String errorText)
+    {
+        System.out.println(login + ": " + errorText);
+        arrayListOfErrorMessagesForSupplier.add(errorText);
+        setMessageOnJSP("arrayListOfErrorMessagesForSupplier", arrayListOfErrorMessagesForSupplier);
+    }
 
     private void setMessageOnJSP(String key, Object value)
     {

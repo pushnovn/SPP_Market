@@ -76,7 +76,7 @@ public class HttpURLConnectionExample {
                 "pass=" + textToSend +
                 "&subject=" + subjectOfMail +
                 "&email=" + emailAdress +
-                "&from=SPP_Pushnov";
+                "&from=SppPushnov";
 
         // Send post request
         con.setDoOutput(true);
@@ -87,8 +87,8 @@ public class HttpURLConnectionExample {
 
         int responseCode = con.getResponseCode();
         System.out.println("\nSending 'POST' request to URL : " + url);
-        System.out.println("Post parameters : " + urlParameters);
-        System.out.println("Response Code : " + responseCode);
+        System.out.println("\nPost parameters : " + urlParameters);
+        System.out.println("\nResponse Code : " + responseCode);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -101,7 +101,7 @@ public class HttpURLConnectionExample {
         in.close();
 
         //print result
-        System.out.println("______________\n\nResponse: " + response.toString());
+        System.out.println("\n______________\n\nResponse: " + response.toString());
         System.out.println("______________");
 
     }

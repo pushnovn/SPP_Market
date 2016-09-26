@@ -20,6 +20,7 @@
 	<div class="row vertical-offset-100">
 		<div class="col-md-4 col-md-offset-4">
 			<div class="panel panel-default">
+                <a style="width:100%;margin-bottom: 20px" href="index.jsp" class="btn btn-primary" type="submit">Back to the homepage</a>
 				<div class="panel-heading">
 					<h3 class="panel-title">Please sign in</h3>
 				</div>
@@ -41,7 +42,7 @@
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
 							</div>
                             <div style="color: red;">
-                                <ul>
+                                <ul style="list-style-type: none;">
                                     <s:iterator value="arrayListOfErrorMessages">
                                         <li><s:property/></li>
                                     </s:iterator>

@@ -54,59 +54,77 @@ public class Authorisation extends ActionSupport implements SessionAware
 
     public String login() throws Exception
     {
-        //this.login = this.login.toLowerCase();
-        User user = UserDao.getUserByLogin(this.login);
-        if (user == null)
+        try
         {
-            SetErrorOnThePage("Please, check the username. Such user is not exists.");
-            return Action.LOGIN;
-        }
-        else
-        {
-            if (!new CryptService().Decrypt(user.getPassword()).equals(this.password))
+            User user = UserDao.getUserByLogin(this.login);
+            if (user == null)
             {
-                SetErrorOnThePage("Please, check the password you entered.");
+                SetErrorOnThePage("Please, check the username. Such user is not exists.");
                 return Action.LOGIN;
             }
             else
             {
-                session.put("id", user.getId());
-                session.put("login", user.getLogin());
-                session.put("role", user.getRole().getName());
-                return Action.SUCCESS;
+                if (!new CryptService().Decrypt(user.getPassword()).equals(this.password))
+                {
+                    SetErrorOnThePage("Please, check the password you entered.");
+                    return Action.LOGIN;
+                }
+                else
+                {
+                    session.put("id", user.getId());
+                    session.put("login", user.getLogin());
+                    session.put("role", user.getRole().getName());
+                    return Action.SUCCESS;
+                }
             }
+        }
+        catch (Exception exp)
+        {
+            SetErrorOnThePage("Something go wrong. Please, try one more time.");
+            return Action.LOGIN;
         }
     }
 
 
     public String sendPasswordToEmail() throws Exception
     {
-        User user = UserDao.getUserByLogin(this.login);
-        if (user == null)
+        try
         {
-            SetErrorOnThePage("Please, check the username. Such user is not exists.");
-            return Action.ERROR;
+            User user = UserDao.getUserByLogin(this.login);
+            if (user == null)
+            {
+                SetErrorOnThePage("Please, check the username. Such user is not exists.");
+                return Action.ERROR;
+            }
+            if (user.getEmail() == null || user.getEmail().equals(""))
+            {
+                SetErrorOnThePage("Sorry, such user's email is not exists.");
+                return Action.ERROR;
+            }
+            else
+            {
+                String textToSend =
+                        "Hi!\nYour password: " +
+                        new CryptService().Decrypt(user.getPassword()) +
+                        "\nThanks for using our service!";
+                String subjectToSend = "SPP labs: hello, dear " + user.getLogin() + "!";
+                String emailToSend = user.getEmail();
+
+                new HttpURLConnectionExample().sendPost(
+                        textToSend,
+                        subjectToSend,
+                        emailToSend
+                );
+
+                SetInfoOnThePage("Check your password on email!");
+
+                return Action.SUCCESS;
+            }
         }
-        if (user.getEmail() == null || user.getEmail().equals(""))
+        catch (Exception exp)
         {
-            SetErrorOnThePage("Sorry, such user's email is not exists.");
+            SetErrorOnThePage("Something go wrong. Please, try one more time.");
             return Action.ERROR;
-        }
-        else
-        {
-            String textToSend = "Hi!\nYour password: " + new CryptService().Decrypt(user.getPassword() + "\nThanks for using our service!");
-            String subjectToSend = "SPP labs: hello, dear " + user.getLogin() + "!";
-            String emailToSend = user.getEmail();
-
-            new HttpURLConnectionExample().sendPost(
-                    textToSend,
-                    subjectToSend,
-                    emailToSend
-            );
-
-            SetInfoOnThePage("Check your password on email!");
-
-            return Action.SUCCESS;
         }
     }
 

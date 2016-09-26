@@ -9,6 +9,22 @@
     <link href="assets/bootstrap/css/bootstrap.css" rel='stylesheet' type='text/css' />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-cookie.js"></script>
+    <script>
+        $(document).ready(function() {
+            var idOfActiveTab = $.cookie("idOfActiveTab");
+            if (idOfActiveTab != "")
+            {
+                $('.tab[data-id="'+idOfActiveTab +'"]').addClass('active');
+            } else {
+                $('.tab[data-id="1"]').addClass('active');
+            }
+            $('.tab').bind('click', function(){
+                var id = $(this).attr('data-id');
+                $.cookie("idOfActiveTab", id);
+            });
+        });
+    </script>
 </head>
 <body>
 <div class="container">
@@ -16,19 +32,20 @@
 		<div class="span12">
 			<div class="" id="loginModal">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<!--	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
+                    <a href="index.jsp" class="btn btn-primary" type="submit">Home</a>
 					<h3>Register new account here</h3>
 				</div>
 				<div class="modal-body">
 					<div class="well">
 						<ul class="nav nav-tabs">
-							<li class="active">
-                                <a href="#ascustomer" data-toggle="tab">
+							<li data-id="1" class="tab">
+                                <a href="#ascustomer" data-toggle="tab" >
                                     Sign up as client
                                 </a>
                             </li>
-							<li>
-                                <a href="#assupplier" data-toggle="tab">
+							<li data-id="2" class="tab">
+                                <a href="#assupplier" data-toggle="tab" >
                                     Sign up as company
                                 </a>
                             </li>

@@ -57,21 +57,21 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="top-navbar-1">
 					<ul class="nav navbar-nav">
-						<li><a class="scroll-link" href="#top-content">Top</a></li>
-						<li><a class="scroll-link" href="#services">Services</a></li>
-						<li><a class="scroll-link" href="#testimonials">Clients</a></li>
-						<li><a class="scroll-link" href="#footer">Contact</a></li>
+						<%--<li><a class="scroll-link" href="#top-content">Top</a></li>--%>
+						<%--<li><a class="scroll-link" href="#services">Services</a></li>--%>
+						<%--<li><a class="scroll-link" href="#testimonials">Clients</a></li>--%>
+						<%--<li><a class="scroll-link" href="#footer">Contact</a></li>--%>
 						<c:set var="salary" scope="session" value='<%=session.getAttribute("role")%>'/>
 						<c:if test="${salary eq 'Customer'}">
-							<li><a href="customer-dashboard.action">Dashboard</a></li>
+							<li><a href="customer-dashboard.action"><%=session.getAttribute("login")%>'s Dashboard</a></li>
 							<li><a href="logout.action">Logout</a></li>
 						</c:if>
 						<c:if test="${salary eq 'Supplier'}">
-							<li><a href="supplier-dashboard.action">Dashboard</a></li>
+							<li><a href="supplier-dashboard.action"><%=session.getAttribute("login")%>'s Dashboard</a></li>
 							<li><a href="logout.action">Logout</a></li>
 						</c:if>
 						<c:if test="${salary eq 'Admin'}">
-							<li><a href="adminpanel.action">Dashboard</a></li>
+							<li><a href="adminpanel.action"><%=session.getAttribute("login")%>'s Dashboard</a></li>
 							<li><a href="logout.action">Logout</a></li>
 						</c:if>
 						<c:choose>
@@ -80,7 +80,7 @@
 								<li><a href="authorisation.action">Sign In</a></li>
 							</c:when>
 						</c:choose>
-					</ul>
+                    </ul>
 					<div class="navbar-text navbar-right">
 						<a href="#"><i class="fa fa-facebook"></i></a>
 						<a href="#"><i class="fa fa-dribbble"></i></a>

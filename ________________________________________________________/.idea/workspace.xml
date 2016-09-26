@@ -61,126 +61,6 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="239" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="247" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="243" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="249" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="256" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="304" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="302" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" line="354" class="com.d1l.service.Registration" package="com.d1l.service">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/AddAdminController.java" line="55" class="com.d1l.controller.adminpanel.AddAdminController" package="com.d1l.controller.adminpanel">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
@@ -271,36 +151,6 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/util/HttpURLConnectionExample.java" line="67" class="com.d1l.util.HttpURLConnectionExample" package="com.d1l.util">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/main/java/com/d1l/util/HttpURLConnectionExample.java" line="104" class="com.d1l.util.HttpURLConnectionExample" package="com.d1l.util">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="REMOVE_AFTER_HIT" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
     </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
@@ -314,8 +164,42 @@
       <file leaf-file-name="struts.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="32" selection-start="3958" selection-end="3958" vertical-scroll-proportion="-4.92" vertical-offset="1560" max-vertical-offset="4998">
+            <state line="59" column="26" selection-start="2067" selection-end="2071" vertical-scroll-proportion="-5.6" vertical-offset="863" max-vertical-offset="4998">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RoleInterceptor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/interceptor/RoleInterceptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="10" selection-start="2636" selection-end="2880" vertical-scroll-proportion="0.0" vertical-offset="505" max-vertical-offset="1513">
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#514#541#0" expanded="false" />
+                <element signature="e#654#662#0" expanded="false" />
+                <element signature="e#722#730#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signup-page.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="12" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.48456058" vertical-offset="204" max-vertical-offset="2652">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery-cookie.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/assets/js/jquery-cookie.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="114" column="0" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="1525" max-vertical-offset="2040">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -323,28 +207,8 @@
       <file leaf-file-name="signin-page.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="66" selection-start="1017" selection-end="1048" vertical-scroll-proportion="-5.730769" vertical-offset="344" max-vertical-offset="1224">
+            <state line="48" column="37" selection-start="2118" selection-end="2118" vertical-scroll-proportion="-8.346154" vertical-offset="599" max-vertical-offset="1241">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reset-password-page.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="33" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.8052257" vertical-offset="307" max-vertical-offset="969">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HttpURLConnectionExample.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/util/HttpURLConnectionExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="0" selection-start="2361" selection-end="2361" vertical-scroll-proportion="-12.2" vertical-offset="1038" max-vertical-offset="1938">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -352,34 +216,35 @@
       <file leaf-file-name="Authorisation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="59" selection-start="3215" selection-end="3215" vertical-scroll-proportion="0.0" vertical-offset="862" max-vertical-offset="2023">
+            <state line="126" column="31" selection-start="3848" selection-end="3848" vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="2720">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#664#672#0" expanded="true" />
                 <element signature="e#745#753#0" expanded="true" />
-                <element signature="method#login#0;class#Authorisation#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendMail.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/util/SendMail.java">
+      <file leaf-file-name="Registration.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="0" selection-start="1729" selection-end="1729" vertical-scroll-proportion="0.0" vertical-offset="369" max-vertical-offset="1173">
+            <state line="236" column="4" selection-start="6147" selection-end="6147" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="2618">
               <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CryptService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/util/CryptService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="25" selection-start="424" selection-end="436" vertical-scroll-proportion="0.0" vertical-offset="428" max-vertical-offset="1224">
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1227#1235#0" expanded="true" />
+                <element signature="e#1320#1328#0" expanded="true" />
+                <element signature="method#setSession#1;class#Registration#0" expanded="false" />
+                <element signature="method#execute#0;class#Registration#0" expanded="false" />
+                <element signature="e#3166#3198#0" expanded="false" />
+                <element signature="e#4854#4912#0" expanded="false" />
+                <element signature="method#singupAsCustomer#0;class#Registration#0" expanded="false" />
+                <element signature="method#validateCustomer#0;class#Registration#0" expanded="false" />
+                <element signature="method#validateSupplier#0;class#Registration#0" expanded="false" />
+                <element signature="method#SetErrorOnThePageForCostumer#0;class#Registration#0" expanded="false" />
+                <element signature="method#SetErrorOnThePageForSupplier#0;class#Registration#0" expanded="false" />
+                <element signature="method#setMessageOnJSP#0;class#Registration#0" expanded="false" />
+                <element signature="e#15567#15583#0" expanded="true" />
+                <element signature="e#15659#15750#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -401,11 +266,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/MarketsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/controller/supplier/ItemsController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/main/signin-error-page.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/error.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/main/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/error.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/adminpanel/markets.jsp" />
@@ -417,18 +280,21 @@
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/model/User.java" />
         <option value="dbtable:/d00f57a6/d68f6141-be54-4fa3-8027-a3193b02c4d9/marketservice..user" />
         <option value="$PROJECT_DIR$/src/main/resources/database/marketservice_schema.sql" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/adminpanel/add-admins.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/controller/adminpanel/AddAdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/dao/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/EmailUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/SendMail.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/HttpURLConnectionExample.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/struts.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/d1l/util/HttpURLConnectionExample.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/error.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/assets/js/jquery-cookie.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp" />
       </list>
     </option>
   </component>
@@ -597,6 +463,70 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SPP_Market" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="________________________________________________________" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SPP_Market" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="________________________________________________________" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -713,7 +643,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="interceptor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SPP_Market" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="________________________________________________________" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d1l" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SPP_Market" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="________________________________________________________" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="d1l" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adminpanel" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1201,12 +1195,12 @@
       <workItem from="1474526877833" duration="4863000" />
       <workItem from="1474577626294" duration="6671000" />
       <workItem from="1474607768889" duration="1146000" />
-      <workItem from="1474610362212" duration="57827000" />
+      <workItem from="1474610362212" duration="65221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88447000" />
+    <option name="totallyTimeSpent" value="95841000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1319,39 +1313,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/interceptor/RoleInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#514#541#0" expanded="false" />
-            <element signature="e#654#662#0" expanded="false" />
-            <element signature="e#722#730#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel/markets-delete-modal.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="40" selection-start="182" selection-end="182" vertical-scroll-proportion="0.100790516" vertical-offset="0" max-vertical-offset="506">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel/markets-edit-modal.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="45" selection-start="705" selection-end="705" vertical-scroll-proportion="-3.6666667" vertical-offset="0" max-vertical-offset="561">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminpanel/markets.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="12" selection-start="1085" selection-end="1088" vertical-scroll-proportion="-3.0" vertical-offset="391" max-vertical-offset="4165">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/dao/MarketDaoTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="8" selection-start="310" selection-end="310" vertical-scroll-proportion="0.2236842" vertical-offset="68" max-vertical-offset="799">
@@ -1573,13 +1534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="71" selection-start="1477" selection-end="1495" vertical-scroll-proportion="-3.0769231" vertical-offset="566" max-vertical-offset="2363">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5-BETA3/struts2-core-2.5-BETA3.jar!/com/opensymphony/xwork2/ognl/accessor/XWorkMethodAccessor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="29" selection-start="585" selection-end="585" vertical-scroll-proportion="-8.16" vertical-offset="0" max-vertical-offset="391">
@@ -1654,24 +1608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="460" column="73" selection-start="14113" selection-end="14113" vertical-scroll-proportion="0.0" vertical-offset="4375" max-vertical-offset="5338">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1270#1278#0" expanded="true" />
-            <element signature="e#1363#1371#0" expanded="true" />
-            <element signature="method#setSession#1;class#Registration#0" expanded="false" />
-            <element signature="method#execute#0;class#Registration#0" expanded="false" />
-            <element signature="e#3209#3241#0" expanded="false" />
-            <element signature="e#4897#4955#0" expanded="false" />
-            <element signature="e#10452#10510#0" expanded="false" />
-            <element signature="method#setMessageOnJSP#0;class#Registration#0" expanded="false" />
-            <element signature="e#14484#14575#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5-BETA3/struts2-core-2.5-BETA3.jar!/org/apache/struts2/dispatcher/filter/StrutsExecuteFilter.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="16" selection-start="732" selection-end="732" vertical-scroll-proportion="0.6" vertical-offset="29" max-vertical-offset="459">
@@ -1713,42 +1649,107 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/util/HttpURLConnectionExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="0" selection-start="2361" selection-end="2361" vertical-scroll-proportion="-12.2" vertical-offset="1038" max-vertical-offset="1938">
+        <state line="104" column="0" selection-start="3252" selection-end="3252" vertical-scroll-proportion="-33.28" vertical-offset="936" max-vertical-offset="1938">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="59" selection-start="3215" selection-end="3215" vertical-scroll-proportion="0.0" vertical-offset="862" max-vertical-offset="2023">
+        <state line="23" column="86" selection-start="835" selection-end="835" vertical-scroll-proportion="-5.1923075" vertical-offset="256" max-vertical-offset="986">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="54" selection-start="3924" selection-end="3924" vertical-scroll-proportion="13.038462" vertical-offset="1461" max-vertical-offset="2142">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#664#672#0" expanded="true" />
-            <element signature="e#745#753#0" expanded="true" />
-            <element signature="method#login#0;class#Authorisation#0" expanded="false" />
+            <element signature="tag#style#0;tag#head#0;tag#html#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="32" selection-start="3958" selection-end="3958" vertical-scroll-proportion="-4.92" vertical-offset="1560" max-vertical-offset="4998">
+        <state line="74" column="62" selection-start="3712" selection-end="3718" vertical-scroll-proportion="-7.8461537" vertical-offset="1054" max-vertical-offset="7072">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signin-page.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="66" selection-start="1017" selection-end="1048" vertical-scroll-proportion="-5.730769" vertical-offset="344" max-vertical-offset="1224">
+        <state line="48" column="37" selection-start="2118" selection-end="2118" vertical-scroll-proportion="-8.346154" vertical-offset="599" max-vertical-offset="1241">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/reset-password-page.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="33" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.8052257" vertical-offset="307" max-vertical-offset="969">
+        <state line="236" column="4" selection-start="6147" selection-end="6147" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="2618">
+          <folding>
+            <element signature="e#1227#1235#0" expanded="true" />
+            <element signature="e#1320#1328#0" expanded="true" />
+            <element signature="method#setSession#1;class#Registration#0" expanded="false" />
+            <element signature="method#execute#0;class#Registration#0" expanded="false" />
+            <element signature="e#3166#3198#0" expanded="false" />
+            <element signature="e#4854#4912#0" expanded="false" />
+            <element signature="method#singupAsCustomer#0;class#Registration#0" expanded="false" />
+            <element signature="method#validateCustomer#0;class#Registration#0" expanded="false" />
+            <element signature="method#validateSupplier#0;class#Registration#0" expanded="false" />
+            <element signature="method#SetErrorOnThePageForCostumer#0;class#Registration#0" expanded="false" />
+            <element signature="method#SetErrorOnThePageForSupplier#0;class#Registration#0" expanded="false" />
+            <element signature="method#setMessageOnJSP#0;class#Registration#0" expanded="false" />
+            <element signature="e#15567#15583#0" expanded="true" />
+            <element signature="e#15659#15750#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/service/Authorisation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="31" selection-start="3848" selection-end="3848" vertical-scroll-proportion="0.0" vertical-offset="589" max-vertical-offset="2720">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#664#672#0" expanded="true" />
+            <element signature="e#745#753#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/struts.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="26" selection-start="2067" selection-end="2071" vertical-scroll-proportion="-5.6" vertical-offset="863" max-vertical-offset="4998">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/d1l/interceptor/RoleInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="10" selection-start="2636" selection-end="2880" vertical-scroll-proportion="0.0" vertical-offset="505" max-vertical-offset="1513">
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#514#541#0" expanded="false" />
+            <element signature="e#654#662#0" expanded="false" />
+            <element signature="e#722#730#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/assets/js/jquery-cookie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="0" selection-start="3716" selection-end="3716" vertical-scroll-proportion="0.0" vertical-offset="1525" max-vertical-offset="2040">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main/signup-page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="12" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.48456058" vertical-offset="204" max-vertical-offset="2652">
           <folding />
         </state>
       </provider>
