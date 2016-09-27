@@ -377,7 +377,8 @@ public class Registration extends ActionSupport implements SessionAware
     // ПРОДАВЕЦ Supplier
     public String singupAsSupplier() throws  Exception
     {
-        try {
+        try
+        {
             if (!validateSupplier(getLogin(), getPassword(), getRepeatpass(), getEmail(), getCompanyName()))
             {
                 setMessageOnJSP("arrayListOfErrorMessagesForSupplier", arrayListOfErrorMessagesForSupplier);
@@ -395,6 +396,7 @@ public class Registration extends ActionSupport implements SessionAware
 
             user.setLogin(this.login);
             user.setPassword(new CryptService().Encrypt(this.password));
+            user.setEmail(this.email);
             user.setRole(RoleDao.getRoleByName("Supplier"));
             UserDao.addOrUpdateUser(user);
 
@@ -467,8 +469,8 @@ public class Registration extends ActionSupport implements SessionAware
                 correctness = false;
             }
 
-            return correctness;}
-
+            return correctness;
+        }
         catch (Exception exp)
         {
             arrayListOfErrorMessagesForSupplier.add(errorMessage);

@@ -139,6 +139,18 @@
                             <label>Password: </label>
                             <input type="password" required class="form-control" name="user.password">
                         </div>
+                        <div class="form-group">
+                            <label>Repeat password: </label>
+                            <input type="password" required class="form-control" name="repeatpassword">
+                        </div>
+                        <div style="color: red;">
+                            <ul style="list-style-type: none;">
+                                <s:iterator value="arrayListOfErrorMessages">
+                                    <li><s:property/></li>
+                                </s:iterator>
+                            </ul>
+                        </div>
+                        </br>
                         <button type="submit" class="btn btn-primary btn-sm add-btn pull-right">Add</button>
                     </form>
                 </div>
