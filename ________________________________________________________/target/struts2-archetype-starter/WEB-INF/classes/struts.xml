@@ -275,6 +275,26 @@
 
         </action>
 
+        <action name="generateUserPDF" class="com.d1l.controller.DocumentController" method="getUserPDF">
+
+        </action>
+        <action name="generateUsersXLS" class="com.d1l.controller.DocumentController" method="getUsersXLS">
+
+        </action>
+        <action name="generateUsersCSV" class="com.d1l.controller.DocumentController" method="getUsersCSV">
+
+        </action>
+
+        <action name="generateItemPDF" class="com.d1l.controller.DocumentController" method="getItemPDF">
+
+        </action>
+        <action name="generateItemsXLS" class="com.d1l.controller.DocumentController" method="getItemsXLS">
+
+        </action>
+        <action name="generateItemsCSV" class="com.d1l.controller.DocumentController" method="getItemsCSV">
+
+        </action>
+
 
 
         <action name="*">

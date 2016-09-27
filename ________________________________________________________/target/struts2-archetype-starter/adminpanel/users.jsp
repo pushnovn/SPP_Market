@@ -127,6 +127,9 @@
                 <div class="col-md-12">
                     <div class="panel-body">
                         <div class="table-responsive">
+                            <a href="/generateUsersXLS.action">Generate XLS</a>
+                            &middot;
+                            <a href="/generateUsersCSV.action">Generate CSV</a>
                             <p>Users list:</p>
                             <div style="color: red;">
                                 <ul style="list-style-type: none;">
@@ -161,6 +164,8 @@
                                                     <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                                     delete
                                                 </button>
+                                                &middot;
+                                                <a href="generateUserPDF.action?id=<s:property value="id"/>">PDF</a>
                                             </s:else>
                                         </td>
                                     </tr>

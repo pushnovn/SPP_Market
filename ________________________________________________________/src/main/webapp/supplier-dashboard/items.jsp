@@ -123,6 +123,10 @@
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                             Add new item
                         </button>
+                        &middot;
+                        <a href="/generateItemsXLS.action">Generate XLS</a>
+                        &middot;
+                        <a href="/generateItemsCSV.action">Generate CSV</a>
                     </div>
                     <!-- Table -->
                     <div class="panel-body">
@@ -175,6 +179,8 @@
                                                 <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                                                 delete
                                             </button>
+                                            &middot;
+                                            <a href="/generateItemPDF.action?id=<s:property value="id"/>">PDF</a>
                                                 <%--&middot;--%>
                                                 <%--<a href="/generateAnalysePDF.action?id=<s:property value="id"/>">PDF</a>--%>
                                         </td>
