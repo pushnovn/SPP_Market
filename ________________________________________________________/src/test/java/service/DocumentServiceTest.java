@@ -143,7 +143,12 @@ public class DocumentServiceTest {
     }
 
     @Test
-    public void getItemsInPdf() throws Exception {
+     public void getItemsInPdf() throws Exception {
+        documentGenerator.generateItemsInPDFById(1);
+    }
+
+    @Test
+    public void getItemsINPdf() throws Exception {
         documentGenerator.generateItemsInPDFById(1);
     }
 

@@ -15,9 +15,11 @@
             var idOfActiveTab = $.cookie("idOfActiveTab");
             if (idOfActiveTab != "")
             {
-                $('.tab[data-id="'+idOfActiveTab +'"]').addClass('active');
+                $( '.tab[data-id="' + idOfActiveTab + '"]' ).addClass('active');
+                $('.tab-pane:nth-child('+idOfActiveTab +')').addClass('active');
             } else {
                 $('.tab[data-id="1"]').addClass('active');
+                $('.tab-pane:nth-child(1)').addClass('active');
             }
             $('.tab').bind('click', function(){
                 var id = $(this).attr('data-id');
@@ -52,7 +54,7 @@
 						</ul>
 
 						<div id="myTabContent" class="tab-content">
-							<div class="tab-pane active in" id="ascustomer">
+							<div class="tab-pane in" id="ascustomer">
 								<form class="form-horizontal" action='signup-as-customer.action' method="POST">
 									<fieldset>
 										&nbsp;
@@ -98,7 +100,7 @@
 								</form>
 							</div>
 
-							<div class="tab-pane fade" id="assupplier">
+							<div class="tab-pane" id="assupplier">
 								<form class="form-horizontal" action='signup-as-supplier.action' method="POST">
 									<fieldset>
 										&nbsp;
