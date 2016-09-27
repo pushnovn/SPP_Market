@@ -24,60 +24,70 @@ public class MakeOrderController extends ActionSupport {
     }
 
     @Override
-    public String execute() throws Exception {
-        Map session = ActionContext.getContext().getSession();
+    public String execute() throws Exception
+    {
+        try
+        {
+            Map session = ActionContext.getContext().getSession();
 
-        List<ItemInfoForOrder> items;
+            List<ItemInfoForOrder> items;
 
-        if (session.containsKey("itemsForOrder")) {
-            items = (List<ItemInfoForOrder>)session.get("itemsForOrder");
-        } else {
-            return Action.SUCCESS;
+            if (session.containsKey("itemsForOrder")) {
+                items = (List<ItemInfoForOrder>)session.get("itemsForOrder");
+            } else {
+                return Action.SUCCESS;
+            }
+
+            itemsList = new ArrayList<ItemReport>();
+            for (ItemInfoForOrder itemInfo : items) {
+                ItemReport itemReport = new ItemReport();
+                itemReport.setItem(ItemDao.getItemById(itemInfo.getItemId()));
+                itemReport.setCount(itemInfo.getCount());
+                itemsList.add(itemReport);
+            }
         }
-
-        itemsList = new ArrayList<ItemReport>();
-        for (ItemInfoForOrder itemInfo : items) {
-            ItemReport itemReport = new ItemReport();
-            itemReport.setItem(ItemDao.getItemById(itemInfo.getItemId()));
-            itemReport.setCount(itemInfo.getCount());
-            itemsList.add(itemReport);
-        }
+        catch (Exception exp) { }
 
         return Action.SUCCESS;
     }
 
-    public String makeOrder() throws Exception {
-        Map session = ActionContext.getContext().getSession();
+    public String makeOrder() throws Exception
+    {
+        try
+        {
+            Map session = ActionContext.getContext().getSession();
 
-        List<ItemInfoForOrder> items;
+            List<ItemInfoForOrder> items;
 
-        if (session.containsKey("itemsForOrder")) {
-            items = (List<ItemInfoForOrder>)session.get("itemsForOrder");
-        } else {
-            return Action.SUCCESS;
+            if (session.containsKey("itemsForOrder")) {
+                items = (List<ItemInfoForOrder>)session.get("itemsForOrder");
+            } else {
+                return Action.SUCCESS;
+            }
+
+            Order order = new Order();
+            Customer customer = CustomerDao.getCustomerByUser(
+                    UserDao.getUserById(Integer.parseInt(session.get("id").toString())));
+            order.setCustomer(customer);
+            order.setDate(new Date());
+            OrderDao.addOrUpdateOrder(order);
+            order = OrderDao.getOrderByCustomerAndLastDate(customer);
+
+            for (ItemInfoForOrder itemInfo : items) {
+                OrderItem orderItem = new OrderItem();
+                orderItem.setOrderId(order.getId());
+                orderItem.setCount(itemInfo.getCount());
+                orderItem.setItemId(itemInfo.getItemId());
+                Item d = ItemDao.getItemById(itemInfo.getItemId());
+                if (d.getCountInMarket() - itemInfo.getCount() < 0) continue;
+                d.setCountInMarket(d.getCountInMarket() - itemInfo.getCount());
+                ItemDao.addOrUpdateItem(d);
+                OrderItemDao.addOrUpdateOrderItem(orderItem);
+            }
+
+            session.remove("itemsForOrder");
         }
-
-        Order order = new Order();
-        Customer customer = CustomerDao.getCustomerByUser(
-                UserDao.getUserById(Integer.parseInt(session.get("id").toString())));
-        order.setCustomer(customer);
-        order.setDate(new Date());
-        OrderDao.addOrUpdateOrder(order);
-        order = OrderDao.getOrderByCustomerAndLastDate(customer);
-
-        for (ItemInfoForOrder itemInfo : items) {
-            OrderItem orderItem = new OrderItem();
-            orderItem.setOrderId(order.getId());
-            orderItem.setCount(itemInfo.getCount());
-            orderItem.setItemId(itemInfo.getItemId());
-            Item d = ItemDao.getItemById(itemInfo.getItemId());
-            if (d.getCountInMarket() - itemInfo.getCount() < 0) continue;
-            d.setCountInMarket(d.getCountInMarket() - itemInfo.getCount());
-            ItemDao.addOrUpdateItem(d);
-            OrderItemDao.addOrUpdateOrderItem(orderItem);
-        }
-
-        session.remove("itemsForOrder");
+        catch (Exception exp) {}
 
         return Action.SUCCESS;
     }

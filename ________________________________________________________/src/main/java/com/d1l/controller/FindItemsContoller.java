@@ -20,8 +20,9 @@ public class FindItemsContoller extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
+        try{
         itemsList = ItemDao.getItemsList();
-        return Action.SUCCESS;
+        return Action.SUCCESS;} catch (Exception exp){return Action.SUCCESS;}
     }
 }
 

@@ -16,26 +16,34 @@ public class MarketsController extends ActionSupport {
     private int id;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws Exception {try {
         marketsList = MarketDao.getMarketsList();
-        return Action.SUCCESS;
+        return Action.SUCCESS;}
+    catch (Exception exp) {}
+    return Action.SUCCESS;
     }
 
     public String update() {
+        try {
         if (!validate(getMarket())) return Action.SUCCESS;
-        MarketDao.addOrUpdateMarket(getMarket());
+        MarketDao.addOrUpdateMarket(getMarket());}
+        catch (Exception exp) {}
         return Action.SUCCESS;
     }
 
-    public String delete() {
+    public String delete() {try{
         MarketDao.deleteMarket(getId());
-        return Action.SUCCESS;
+        return Action.SUCCESS;}
+    catch (Exception exp) {}
+    return Action.SUCCESS;
     }
 
-    public String add() {
+    public String add() {try{
         if (!validate(getMarket())) return Action.SUCCESS;
         MarketDao.addOrUpdateMarket(getMarket());
-        return Action.SUCCESS;
+        return Action.SUCCESS;}
+    catch (Exception exp) {}
+    return Action.SUCCESS;
     }
 
     public Market getMarket() {
@@ -74,20 +82,27 @@ public class MarketsController extends ActionSupport {
 
     private boolean validate(Market market)
     {
-        Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,100}$");
-        Matcher m = namePattern.matcher(market.getName());
-        if (!m.matches())
+        try
         {
-            errorString = "The name is invalid";
+            Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,100}$");
+            Matcher m = namePattern.matcher(market.getName());
+            if (!m.matches())
+            {
+                errorString = "The name is invalid";
+                return false;
+            }
+            Pattern addressPattern = Pattern.compile("^[A-Za-z0-9,.\\s]{1,250}$");
+            m = addressPattern.matcher(market.getAddress());
+            if (!m.matches())
+            {
+                errorString = "The address is invalid";
+                return false;
+            }
+            return true;
+        }
+        catch (Exception exp)
+        {
             return false;
         }
-        Pattern addressPattern = Pattern.compile("^[A-Za-z0-9,.\\s]{1,250}$");
-        m = addressPattern.matcher(market.getAddress());
-        if (!m.matches())
-        {
-            errorString = "The address is invalid";
-            return false;
-        }
-        return true;
     }
 }

@@ -128,6 +128,14 @@
                     <div class="panel-body">
                         <div class="table-responsive">
                             <p>Users list:</p>
+                            <div style="color: red;">
+                                <ul style="list-style-type: none;">
+                                    <s:iterator value="arrayListOfErrorMessages">
+                                        <li><s:property/></li>
+                                    </s:iterator>
+                                </ul>
+                            </div>
+                            </br>
                             <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>

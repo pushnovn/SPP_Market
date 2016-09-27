@@ -16,26 +16,34 @@ public class CategoriesController extends ActionSupport {
     private int id;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws Exception {try{
         categoriesList = CategoryDao.getCategoriesList();
-        return Action.SUCCESS;
+        return Action.SUCCESS;}
+    catch (Exception exp) {}
+    return Action.SUCCESS;
     }
 
-    public String update() {
+    public String update() {try{
         if (!validate(getCategory())) return Action.SUCCESS;
         CategoryDao.addOrUpdateCategory(getCategory());
+        return Action.SUCCESS;}
+    catch (Exception exp) {}
         return Action.SUCCESS;
     }
 
-    public String delete() {
+    public String delete() {try{
         CategoryDao.deleteCategory(getId());
+        return Action.SUCCESS;}
+    catch (Exception exp) {}
         return Action.SUCCESS;
     }
 
-    public String add() {
+    public String add() {try{
         if (!validate(getCategory())) return Action.SUCCESS;
         CategoryDao.addOrUpdateCategory(getCategory());
-        return Action.SUCCESS;
+        return Action.SUCCESS;}
+    catch (Exception exp) {}
+    return Action.SUCCESS;
     }
 
     public Category getCategory() {
@@ -73,7 +81,7 @@ public class CategoriesController extends ActionSupport {
     }
 
     private boolean validate(Category category)
-    {
+    {try{
         Pattern namePattern = Pattern.compile("^[A-Za-z\\s]{1,100}$");
         Matcher m = namePattern.matcher(category.getName());
         if (!m.matches())
@@ -81,7 +89,9 @@ public class CategoriesController extends ActionSupport {
             errorString = "The name is invalid";
             return false;
         }
-        return true;
+        return true;}
+    catch (Exception exp) {
+        return false;}
     }
 
 }

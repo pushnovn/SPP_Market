@@ -18,33 +18,38 @@ public class OrdersController extends ActionSupport {
     private List<OrderReport> orderReports;
 
     @Override
-    public String execute() throws Exception {
-        ordersList = OrderDao.getOrdersList();
+    public String execute() throws Exception
+    {
+        try
+        {
+            ordersList = OrderDao.getOrdersList();
 
-        orderReports = new ArrayList<OrderReport>();
-        for (Order order : ordersList) {
-            orderItems = OrderItemDao.getOrderItemsByOrderId(order.getId());
+            orderReports = new ArrayList<OrderReport>();
+            for (Order order : ordersList) {
+                orderItems = OrderItemDao.getOrderItemsByOrderId(order.getId());
 
-            int amount = 0;
-            List<ItemReport> detailReports = new ArrayList<ItemReport>();
-            for (OrderItem orderItem : orderItems) {
-                Item item = ItemDao.getItemById(orderItem.getItemId());
+                int amount = 0;
+                List<ItemReport> detailReports = new ArrayList<ItemReport>();
+                for (OrderItem orderItem : orderItems) {
+                    Item item = ItemDao.getItemById(orderItem.getItemId());
 
-                ItemReport itemReport = new ItemReport();
-                itemReport.setItem(item);
-                itemReport.setCount(orderItem.getCount());
-                detailReports.add(itemReport);
+                    ItemReport itemReport = new ItemReport();
+                    itemReport.setItem(item);
+                    itemReport.setCount(orderItem.getCount());
+                    detailReports.add(itemReport);
 
-                amount += item.getPrice() * orderItem.getCount();
+                    amount += item.getPrice() * orderItem.getCount();
+                }
+
+                OrderReport orderReport = new OrderReport();
+                orderReport.setCustomer(CustomerDao.getCustomerById(order.getCustomer().getId()));
+                orderReport.setItemsList(detailReports);
+                orderReport.setAmount(amount);
+                orderReport.setId(order.getId());
+                orderReports.add(orderReport);
             }
-
-            OrderReport orderReport = new OrderReport();
-            orderReport.setCustomer(CustomerDao.getCustomerById(order.getCustomer().getId()));
-            orderReport.setItemsList(detailReports);
-            orderReport.setAmount(amount);
-            orderReport.setId(order.getId());
-            orderReports.add(orderReport);
         }
+        catch (Exception exp) {}
 
         return Action.SUCCESS;
     }

@@ -17,39 +17,49 @@ public class OrdersController extends ActionSupport {
     private List<OrderReport> orderReports;
 
     @Override
-    public String execute() throws Exception {
-        Map session = ActionContext.getContext().getSession();
-        if(session.containsKey("id")) {
-            ordersList = OrderDao.getOrdersListByCustomer(
-                    CustomerDao.getCustomerByUser(
-                            UserDao.getUserById(Integer.parseInt(session.get("id").toString()))));
+    public String execute() throws Exception
+    {
+        try
+        {
+            Map session = ActionContext.getContext().getSession();
+            if(session.containsKey("id"))
+            {
+                ordersList = OrderDao.getOrdersListByCustomer(
+                        CustomerDao.getCustomerByUser(
+                                UserDao.getUserById(Integer.parseInt(session.get("id").toString()))));
 
-            orderReports = new ArrayList<OrderReport>();
-            for (Order order : ordersList) {
-                orderItems = OrderItemDao.getOrderItemsByOrderId(order.getId());
-
+                orderReports = new ArrayList<OrderReport>();
                 int amount = 0;
-                List<ItemReport> itemReports = new ArrayList<ItemReport>();
-                for (OrderItem orderItem : orderItems) {
-                    Item item = ItemDao.getItemById(orderItem.getItemId());
+                for (Order order : ordersList)
+                {
+                    orderItems = OrderItemDao.getOrderItemsByOrderId(order.getId());
 
-                    ItemReport itemReport = new ItemReport();
-                    itemReport.setItem(item);
-                    itemReport.setCount(orderItem.getCount());
-                    itemReports.add(itemReport);
+                    List<ItemReport> itemReports = new ArrayList<ItemReport>();
+                    for (OrderItem orderItem : orderItems) {
+                        Item item = ItemDao.getItemById(orderItem.getItemId());
 
-                    amount += item.getPrice();
+                        ItemReport itemReport = new ItemReport();
+                        itemReport.setItem(item);
+                        itemReport.setCount(orderItem.getCount());
+                        itemReports.add(itemReport);
+
+                        amount += item.getPrice()*itemReport.getCount();
+                    }
+
+                    OrderReport orderReport = new OrderReport();
+                    orderReport.setCustomer(CustomerDao.getCustomerById(order.getCustomer().getId()));
+                    orderReport.setItemsList(itemReports);
+                    orderReport.setAmount(amount);
+                    orderReport.setId(order.getId());
+                    orderReports.add(orderReport);
                 }
-
-                OrderReport orderReport = new OrderReport();
-                orderReport.setCustomer(CustomerDao.getCustomerById(order.getCustomer().getId()));
-                orderReport.setItemsList(itemReports);
-                orderReport.setAmount(amount);
-                orderReport.setId(order.getId());
-                orderReports.add(orderReport);
             }
+            return Action.SUCCESS;
         }
-        return Action.SUCCESS;
+        catch (Exception exp)
+        {
+            return Action.SUCCESS;
+        }
     }
 
     public List<OrderReport> getOrderReports() {

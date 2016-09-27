@@ -15,6 +15,7 @@ public class DocumentController extends ActionSupport implements ServletResponse
     private int id;
 
     private void makeResponse(ByteArrayOutputStream stream, String contentType, String fileName) throws IOException {
+        try {
         response.setContentType(contentType);
         response.setHeader("Content-Disposition",
                 "inline; filename=" + fileName);
@@ -24,7 +25,7 @@ public class DocumentController extends ActionSupport implements ServletResponse
         os.write(stream.toByteArray());
         os.flush();
         os.close();
-        stream.reset();
+        stream.reset();} catch (Exception exp){}
     }
     @Override
     public String execute() throws Exception {

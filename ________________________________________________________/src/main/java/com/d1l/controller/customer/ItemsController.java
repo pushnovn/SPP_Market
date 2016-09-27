@@ -40,29 +40,35 @@ public class ItemsController extends ActionSupport {
         return Action.SUCCESS;
     }
 
-    public String addItemForOrder() throws Exception {
-        Map session = ActionContext.getContext().getSession();
-        try {
-            if (ItemDao.getItemById(Integer.parseInt(itemId)) == null) return Action.SUCCESS;
-            Integer.parseInt(count);
-        } catch (Exception ex) {return  Action.SUCCESS;}
+    public String addItemForOrder() throws Exception
+    {
+        try
+        {
+            Map session = ActionContext.getContext().getSession();
+            try {
+                if (ItemDao.getItemById(Integer.parseInt(itemId)) == null) return Action.SUCCESS;
+                Integer.parseInt(count);
+            } catch (Exception ex) {return  Action.SUCCESS;}
 
-        List<ItemInfoForOrder> items;
+            List<ItemInfoForOrder> items;
 
-        if (session.containsKey("itemsForOrder")) {
-            items = (List<ItemInfoForOrder>)session.get("itemsForOrder");
-        } else {
-            items = new ArrayList<ItemInfoForOrder>();
+            if (session.containsKey("itemsForOrder")) {
+                items = (List<ItemInfoForOrder>)session.get("itemsForOrder");
+            } else {
+                items = new ArrayList<ItemInfoForOrder>();
+            }
+
+            ItemInfoForOrder itemInfo = new ItemInfoForOrder();
+            itemInfo.setItemId(Integer.parseInt(itemId));
+            itemInfo.setCount(Integer.parseInt(count));
+            items.add(itemInfo);
+            session.put("itemsForOrder", items);
         }
-
-        ItemInfoForOrder itemInfo = new ItemInfoForOrder();
-        itemInfo.setItemId(Integer.parseInt(itemId));
-        itemInfo.setCount(Integer.parseInt(count));
-        items.add(itemInfo);
-        session.put("itemsForOrder", items);
+        catch (Exception exp) { }
 
         return Action.SUCCESS;
     }
+
 
     public List<Item> getItemsList() {
         return itemsList;
