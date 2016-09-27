@@ -37,6 +37,10 @@
 				<!--	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>-->
                     <a href="index.jsp" class="btn btn-primary" type="submit">Home</a>
 					<h3>Register new account here</h3>
+                    </br>
+                    <a href="signin-page.jsp">
+                        Arleady have account? Authorisation here.
+                    </a>
 				</div>
 				<div class="modal-body">
 					<div class="well">
@@ -142,6 +146,12 @@
 						</div>
 					</div>
 				</div>
+                <%--<div>--%>
+                    <%--</br>--%>
+                    <%--<a href="signin-page.jsp">--%>
+                       <%--Arleady have account? Authorisation here.--%>
+                    <%--</a>--%>
+                <%--</div>--%>
 			</div>
 		</div>
 	</div>

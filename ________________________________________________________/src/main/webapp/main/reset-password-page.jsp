@@ -21,8 +21,9 @@
 		<div class="col-md-4 col-md-offset-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-                    <a href="index.jsp" class="btn btn-primary" type="submit">Home</a>
-                    <h3 class="panel-title">Enter your login to receive your password via email</h3>
+                    <a style="width:100%; margin-bottom: 40px" href="index.jsp" class="btn btn-primary" type="submit">Home</a>
+
+                    <h3 class="panel-title">Enter your login to receive your password:</h3>
 				</div>
 				<div class="panel-body">
 					<form accept-charset="UTF-8" action='sendPasswordToEmail.action' method="POST">

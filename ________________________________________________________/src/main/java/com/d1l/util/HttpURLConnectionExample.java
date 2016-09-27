@@ -14,6 +14,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class HttpURLConnectionExample {
 
     private final String USER_AGENT = "Mozilla/5.0";
+    private String urlToSendMessage = "http://pushnov.by/send.php";
 
     public static void main(String[] args) throws Exception {
 
@@ -63,8 +64,7 @@ public class HttpURLConnectionExample {
     // HTTP POST request
     public void sendPost(String textToSend, String subjectOfMail, String emailAdress) throws Exception {
 
-        String url = "http://pushnov.by/send.php";
-        URL obj = new URL(url);
+        URL obj = new URL(urlToSendMessage);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         //add reuqest header
@@ -86,9 +86,6 @@ public class HttpURLConnectionExample {
         wr.close();
 
         int responseCode = con.getResponseCode();
-        System.out.println("\nSending 'POST' request to URL : " + url);
-        System.out.println("\nPost parameters : " + urlParameters);
-        System.out.println("\nResponse Code : " + responseCode);
 
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
@@ -99,11 +96,6 @@ public class HttpURLConnectionExample {
             response.append(inputLine);
         }
         in.close();
-
-        //print result
-        System.out.println("\n______________\n\nResponse: " + response.toString());
-        System.out.println("______________");
-
     }
 
 }

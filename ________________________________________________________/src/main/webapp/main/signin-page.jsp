@@ -56,6 +56,12 @@
                         </br>
                         <a href="reset-password-page.jsp">Forgot your password? Click here.</a>
                     </div>
+                    <div>
+                        </br>
+                        <a href="signup-page.jsp">
+                            Haven't got any account? Registration here.
+                        </a>
+                    </div>
 				</div>
 			</div>
 		</div>
