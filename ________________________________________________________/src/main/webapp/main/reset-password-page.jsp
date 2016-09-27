@@ -32,7 +32,7 @@
 								<input class="form-control" placeholder="Login" name="login" type="text">
 							</div>
                             <div style="color: red;">
-                                <ul style="list-style-type: none;">
+                                <ul style="list-style-type: none; padding: 0;">
                                     <s:iterator value="arrayListOfErrorMessages">
                                         <li><s:property/></li>
                                     </s:iterator>

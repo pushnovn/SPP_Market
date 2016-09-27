@@ -89,7 +89,7 @@
 										&nbsp;
 										<div class="form-group">
                                             <div style="color: red;">
-                                                <ul style="list-style-type: none;">
+                                                <ul style="list-style-type: none; padding: 1;">
                                                     <s:iterator value="arrayListOfErrorMessagesForCostumer">
                                                         <li><s:property/></li>
                                                     </s:iterator>
@@ -129,7 +129,7 @@
 										&nbsp;
 										<div class="form-group">
                                             <div style="color: red;">
-                                                <ul style="list-style-type: none;">
+                                                <ul style="list-style-type: none; padding: 1;">
                                                     <s:iterator value="arrayListOfErrorMessagesForSupplier">
                                                         <li><s:property/></li>
                                                     </s:iterator>

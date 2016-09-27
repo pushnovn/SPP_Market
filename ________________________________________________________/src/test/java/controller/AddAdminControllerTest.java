@@ -39,7 +39,7 @@ public class AddAdminControllerTest {
 
     @Test
     public void add() throws Exception {
-        assertEquals(Action.SUCCESS,controller.add());
+        assertEquals(Action.SUCCESS, controller.add());
     }
 
 }

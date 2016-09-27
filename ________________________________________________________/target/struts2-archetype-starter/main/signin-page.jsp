@@ -28,7 +28,7 @@
 					<form accept-charset="UTF-8" action='login.action' method="POST">
 						<fieldset>
                             <div style="color: green;">
-                                <ul style="list-style-type: none;">
+                                <ul style="list-style-type: none; padding: 1;">
                                     <s:iterator value="arrayListOfInfoMessages">
                                         <li><s:property/></li>
                                     </s:iterator>
@@ -42,7 +42,7 @@
 								<input class="form-control" placeholder="Password" name="password" type="password" value="">
 							</div>
                             <div style="color: red;">
-                                <ul style="list-style-type: none;">
+                                <ul style="list-style-type: none; padding: 1;">
                                     <s:iterator value="arrayListOfErrorMessages">
                                         <li><s:property/></li>
                                     </s:iterator>
